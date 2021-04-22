@@ -31,8 +31,48 @@ const getAllBlogCategories = async (graphql) => {
   return categories.data.allMarkdownRemark.distinct;
 };
 
+const generateBlogItemPageForEachCategory = async (
+  graphql,
+  createPage,
+  category
+) => {
+  const result = await graphql(
+    `
+      query getImages($category: String) {
+        allMarkdownRemark(
+          filter: { frontmatter: { category: { eq: $category } } }
+        ) {
+          totalCount
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                category
+                date
+                title
+              }
+            }
+          }
+        }
+      }
+    `,
+    { category: category }
+  );
+
+  const blogPosts = result.data.allMarkdownRemark.edges;
+
+  blogPosts.forEach((post, index) => {
+    // previous and next
+    console.log(post);
+  });
+};
+
 // 2. create pages
 exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
   // 2.a get all blogs from the chosen category
   await getAllBlogCategories(graphql).then((categories) => {
     console.log("categories", categories);
@@ -40,6 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
     categories.map(async (category) => {
       console.log("category", category);
       // 2.b get all blogs from the chosen category
+      generateBlogItemPageForEachCategory(graphql, createPage, category);
     });
   });
 };
