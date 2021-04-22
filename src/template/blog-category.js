@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 
-export default function Home({ data, pageContext }) {
-  console.log(pageContext);
+export default function BlogCategory({ data, pageContext }) {
   const isPreviousBlogs = () => {
     if (pageContext.currentPage > 1) {
       return true;
@@ -29,7 +28,7 @@ export default function Home({ data, pageContext }) {
 
   return (
     <section className="blog-list">
-      <h2>My Blogs</h2>
+      <h2>{pageContext.category}</h2>
       <div className="container">
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
