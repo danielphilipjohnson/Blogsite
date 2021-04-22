@@ -69,7 +69,6 @@ const generateBlogItemPageForEachCategory = async (
     const previous =
       index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
     const next = index === 0 ? null : blogPosts[index - 1].node;
-    console.log(previous);
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(`./src/template/blog-template.js`),
@@ -91,6 +90,52 @@ exports.createPages = async ({ graphql, actions }) => {
     categories.map(async (category) => {
       // 2.b get all blogs from the chosen category
       generateBlogItemPageForEachCategory(graphql, createPage, category);
+    });
+  });
+
+  const result = await graphql(
+    `
+      query {
+        allMarkdownRemark {
+          totalCount
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                category
+                date
+                title
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const blogPosts = result.data.allMarkdownRemark.edges;
+  const reflectionBlogs = blogPosts.filter(
+    (post, index) => post.node.frontmatter.category === "reflection"
+  );
+
+  const postsPerPage = 2;
+  const numPages = Math.ceil(reflectionBlogs.length / postsPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/reflection` : `/reflection/${i + 1}`,
+
+      component: path.resolve(`./src/template/blog-category.js`),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+        category: "reflection",
+      },
     });
   });
 };
