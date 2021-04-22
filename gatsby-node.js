@@ -66,12 +66,17 @@ const generateBlogItemPageForEachCategory = async (
 
   blogPosts.forEach((post, index) => {
     // previous and next
+    const previous =
+      index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
+    const next = index === 0 ? null : blogPosts[index - 1].node;
     console.log(post);
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(`./src/template/blog-template.js`),
       context: {
         slug: post.node.fields.slug,
+        previous,
+        next,
       },
     });
   });
