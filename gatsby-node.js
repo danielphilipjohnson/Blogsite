@@ -34,8 +34,12 @@ const getAllBlogCategories = async (graphql) => {
 // 2. create pages
 exports.createPages = async ({ graphql, actions }) => {
   // 2.a get all blogs from the chosen category
-  await getAllBlogCategories(graphql).then((category) => {
+  await getAllBlogCategories(graphql).then((categories) => {
+    console.log("categories", categories);
     // 2.b iterate category and create pages for that blog
-    console.log(category);
+    categories.map(async (category) => {
+      console.log("category", category);
+      // 2.b get all blogs from the chosen category
+    });
   });
 };
