@@ -3466,9 +3466,21 @@ function Home({
   pageContext
 }) {
   console.log(pageContext);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "working");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "blog-list px-3 py-5 p-md-5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    className: "mb-4"
+  }, "My Blogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container container-blog"
+  }, data.allMarkdownRemark.edges.map(({
+    node
+  }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    key: node.id
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: node.fields.slug
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt))))));
 }
-const blogListQuery = "2515344937";
+const blogListQuery = "3676005940";
 
 /***/ }),
 

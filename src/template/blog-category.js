@@ -3,7 +3,23 @@ import { Link, graphql } from "gatsby";
 
 export default function Home({ data, pageContext }) {
   console.log(pageContext);
-  return <div>working</div>;
+  return (
+    <section className="blog-list">
+      <h2>My Blogs</h2>
+      <div className="container">
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key={node.id}>
+            <Link to={node.fields.slug}>
+              <h3>
+                {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+              </h3>
+              <p>{node.excerpt}</p>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export const blogListQuery = graphql`
@@ -19,6 +35,9 @@ export const blogListQuery = graphql`
           excerpt
           id
           timeToRead
+          fields {
+            slug
+          }
           frontmatter {
             id
             title
