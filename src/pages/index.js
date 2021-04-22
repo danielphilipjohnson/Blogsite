@@ -3,11 +3,24 @@ import { Link, graphql } from "gatsby";
 import Header from "../components/header";
 
 export default function Home({ data }) {
+  // get links of category
+  const categoryNav = () => {
+    return data.categories.distinct.map((category) => {
+      return (
+        <Link to={`/${category}/`}>
+          <li>{category}</li>
+        </Link>
+      );
+    });
+  };
+
   return (
     <div>
       <h1>Amazing Pandas Eating Things</h1>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      <h4>{data.blogs.totalCount} Posts</h4>
+
+      <ul>{categoryNav()}</ul>
+      {data.blogs.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.fields.slug}>
             <h3>
@@ -23,7 +36,9 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    blogs: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       totalCount
       edges {
         node {
@@ -39,6 +54,9 @@ export const query = graphql`
           excerpt
         }
       }
+    }
+    categories: allMarkdownRemark {
+      distinct(field: frontmatter___category)
     }
   }
 `;
