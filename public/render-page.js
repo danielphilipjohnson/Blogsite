@@ -3466,19 +3466,40 @@ function Home({
   pageContext
 }) {
   console.log(pageContext);
+
+  const isPreviousBlogs = () => {
+    if (pageContext.currentPage > 1) {
+      return true;
+    }
+  }; // need to be dynamic
+
+
+  const PreviousBlogLink = () => {
+    if (pageContext.currentPage <= 2) {
+      return `/${pageContext.category}/`;
+    } else {
+      return `/${pageContext.category}/${pageContext.currentPage - 1}`;
+    }
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "blog-list px-3 py-5 p-md-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "mb-4"
-  }, "My Blogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container container-blog"
+    className: "blog-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "My Blogs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container"
   }, data.allMarkdownRemark.edges.map(({
     node
   }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     key: node.id
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: node.fields.slug
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
+    className: "blog-nav nav nav-justified my-5"
+  }, isPreviousBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "nav-link-prev nav-item nav-link  rounded-left",
+    href: PreviousBlogLink()
+  }, "Previous", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
+    className: "arrow-prev fas fa-long-arrow-alt-left"
+  }))));
 }
 const blogListQuery = "3676005940";
 

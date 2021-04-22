@@ -3,6 +3,20 @@ import { Link, graphql } from "gatsby";
 
 export default function Home({ data, pageContext }) {
   console.log(pageContext);
+  const isPreviousBlogs = () => {
+    if (pageContext.currentPage > 1) {
+      return true;
+    }
+  };
+  // need to be dynamic
+  const PreviousBlogLink = () => {
+    if (pageContext.currentPage <= 2) {
+      return `/${pageContext.category}/`;
+    } else {
+      return `/${pageContext.category}/${pageContext.currentPage - 1}`;
+    }
+  };
+
   return (
     <section className="blog-list">
       <h2>My Blogs</h2>
@@ -18,6 +32,17 @@ export default function Home({ data, pageContext }) {
           </div>
         ))}
       </div>
+      <nav className="blog-nav nav nav-justified my-5">
+        {isPreviousBlogs() && (
+          <a
+            className="nav-link-prev nav-item nav-link  rounded-left"
+            href={PreviousBlogLink()}
+          >
+            Previous
+            <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
+          </a>
+        )}
+      </nav>
     </section>
   );
 }
