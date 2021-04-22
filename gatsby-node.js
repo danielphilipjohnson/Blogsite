@@ -85,18 +85,19 @@ const generateBlogItemPageForEachCategory = async (
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // 2.a get all blogs from the chosen category
-  await getAllBlogCategories(graphql).then((categories) => {
-    // 2.b iterate category and create pages for that blog
-    categories.map(async (category) => {
-      // 2.b get all blogs from the chosen category
-      generateBlogItemPageForEachCategory(graphql, createPage, category);
-    });
-  });
+  // await getAllBlogCategories(graphql).then((categories) => {
+  //   // 2.b iterate category and create pages for that blog
+  //   categories.map(async (category) => {
+  //     // 2.b get all blogs from the chosen category
+  //     generateBlogItemPageForEachCategory(graphql, createPage, category);
+  //   });
+  // });
 
+  // get all blogs
   const result = await graphql(
     `
       query {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           totalCount
           edges {
             node {
@@ -116,26 +117,51 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
-  const blogPosts = result.data.allMarkdownRemark.edges;
-  const reflectionBlogs = blogPosts.filter(
-    (post, index) => post.node.frontmatter.category === "reflection"
-  );
+  const categories = await getAllBlogCategories(graphql);
+  console.log(categories);
 
-  const postsPerPage = 2;
-  const numPages = Math.ceil(reflectionBlogs.length / postsPerPage);
+  categories.map((category) => {
+    console.log(category);
+    const blogPosts = result.data.allMarkdownRemark.edges;
+    const reflectionBlogs = blogPosts.filter(
+      (post) => post.node.frontmatter.category === category
+    );
 
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/reflection` : `/reflection/${i + 1}`,
+    const postsPerPage = 2;
+    const numPages = Math.ceil(reflectionBlogs.length / postsPerPage);
 
-      component: path.resolve(`./src/template/blog-category.js`),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-        category: "reflection",
-      },
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/${category}/` : `/${category}/${i + 1}`,
+
+        component: path.resolve(`./src/template/blog-category.js`),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+          category: category,
+        },
+      });
+    });
+
+    reflectionBlogs.forEach((post, index) => {
+      const previous =
+        index === reflectionBlogs.length - 1
+          ? null
+          : reflectionBlogs[index + 1].node;
+
+      const next = index === 0 ? null : reflectionBlogs[index - 1].node;
+
+      createPage({
+        path: post.node.fields.slug,
+        component: path.resolve(`./src/template/blog-template.js`),
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      });
     });
   });
 };
