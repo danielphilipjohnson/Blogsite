@@ -3471,8 +3471,7 @@ function Home({
     if (pageContext.currentPage > 1) {
       return true;
     }
-  }; // need to be dynamic
-
+  };
 
   const PreviousBlogLink = () => {
     if (pageContext.currentPage <= 2) {
@@ -3480,6 +3479,16 @@ function Home({
     } else {
       return `/${pageContext.category}/${pageContext.currentPage - 1}`;
     }
+  };
+
+  const isMoreBlogs = () => {
+    if (pageContext.currentPage < pageContext.numPages) {
+      return true;
+    }
+  };
+
+  const NextBlogLink = () => {
+    return `/${pageContext.category}/${pageContext.currentPage + 1}`;
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
@@ -3499,6 +3508,11 @@ function Home({
     href: PreviousBlogLink()
   }, "Previous", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
     className: "arrow-prev fas fa-long-arrow-alt-left"
+  })), isMoreBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "nav-link-next nav-item nav-link rounded",
+    href: NextBlogLink()
+  }, "Next", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
+    className: "arrow-next fas fa-long-arrow-alt-right"
   }))));
 }
 const blogListQuery = "3676005940";

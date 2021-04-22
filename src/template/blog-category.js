@@ -8,13 +8,23 @@ export default function Home({ data, pageContext }) {
       return true;
     }
   };
-  // need to be dynamic
+
   const PreviousBlogLink = () => {
     if (pageContext.currentPage <= 2) {
       return `/${pageContext.category}/`;
     } else {
       return `/${pageContext.category}/${pageContext.currentPage - 1}`;
     }
+  };
+
+  const isMoreBlogs = () => {
+    if (pageContext.currentPage < pageContext.numPages) {
+      return true;
+    }
+  };
+
+  const NextBlogLink = () => {
+    return `/${pageContext.category}/${pageContext.currentPage + 1}`;
   };
 
   return (
@@ -40,6 +50,15 @@ export default function Home({ data, pageContext }) {
           >
             Previous
             <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
+          </a>
+        )}
+        {isMoreBlogs() && (
+          <a
+            className="nav-link-next nav-item nav-link rounded"
+            href={NextBlogLink()}
+          >
+            Next
+            <i className="arrow-next fas fa-long-arrow-alt-right"></i>
           </a>
         )}
       </nav>
