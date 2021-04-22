@@ -31,69 +31,11 @@ const getAllBlogCategories = async (graphql) => {
   return categories.data.allMarkdownRemark.distinct;
 };
 
-const generateBlogItemPageForEachCategory = async (
-  graphql,
-  createPage,
-  category
-) => {
-  const result = await graphql(
-    `
-      query getImages($category: String) {
-        allMarkdownRemark(
-          filter: { frontmatter: { category: { eq: $category } } }
-        ) {
-          totalCount
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                category
-                date
-                title
-              }
-            }
-          }
-        }
-      }
-    `,
-    { category: category }
-  );
-
-  const blogPosts = result.data.allMarkdownRemark.edges;
-
-  blogPosts.forEach((post, index) => {
-    // previous and next
-    const previous =
-      index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
-    const next = index === 0 ? null : blogPosts[index - 1].node;
-    createPage({
-      path: post.node.fields.slug,
-      component: path.resolve(`./src/template/blog-template.js`),
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    });
-  });
-};
-
 // 2. create pages
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  // 2.a get all blogs from the chosen category
-  // await getAllBlogCategories(graphql).then((categories) => {
-  //   // 2.b iterate category and create pages for that blog
-  //   categories.map(async (category) => {
-  //     // 2.b get all blogs from the chosen category
-  //     generateBlogItemPageForEachCategory(graphql, createPage, category);
-  //   });
-  // });
 
-  // get all blogs
+  //2.a get all blogs
   const result = await graphql(
     `
       query {
@@ -117,19 +59,21 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
+  // 2b fetch categories
   const categories = await getAllBlogCategories(graphql);
-  console.log(categories);
-
+  // 2c iterate categories
   categories.map((category) => {
-    console.log(category);
     const blogPosts = result.data.allMarkdownRemark.edges;
-    const reflectionBlogs = blogPosts.filter(
+
+    // 3.a filter blogs via category
+    const categoryBlogs = blogPosts.filter(
       (post) => post.node.frontmatter.category === category
     );
 
     const postsPerPage = 2;
-    const numPages = Math.ceil(reflectionBlogs.length / postsPerPage);
+    const numPages = Math.ceil(categoryBlogs.length / postsPerPage);
 
+    // 3.b create pages with pagniation for the category
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/${category}/` : `/${category}/${i + 1}`,
@@ -144,14 +88,14 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
-
-    reflectionBlogs.forEach((post, index) => {
+    // 3.c create pages for each individual page
+    categoryBlogs.forEach((post, index) => {
       const previous =
-        index === reflectionBlogs.length - 1
+        index === categoryBlogs.length - 1
           ? null
-          : reflectionBlogs[index + 1].node;
+          : categoryBlogs[index + 1].node;
 
-      const next = index === 0 ? null : reflectionBlogs[index - 1].node;
+      const next = index === 0 ? null : categoryBlogs[index - 1].node;
 
       createPage({
         path: post.node.fields.slug,

@@ -14,8 +14,7 @@
 
 exports.ssrComponents = {
   "component---cache-dev-404-page-js": preferDefault(__webpack_require__(/*! ./.cache/dev-404-page.js */ "./.cache/dev-404-page.js")),
-  "component---src-pages-index-js": preferDefault(__webpack_require__(/*! ./src/pages/index.js */ "./src/pages/index.js")),
-  "component---src-template-blog-category-js": preferDefault(__webpack_require__(/*! ./src/template/blog-category.js */ "./src/template/blog-category.js"))
+  "component---src-pages-index-js": preferDefault(__webpack_require__(/*! ./src/pages/index.js */ "./src/pages/index.js"))
   }
 
 
@@ -3442,78 +3441,6 @@ function Home({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt)))));
 }
 const query = "330052071";
-
-/***/ }),
-
-/***/ "./src/template/blog-category.js":
-/*!***************************************!*\
-  !*** ./src/template/blog-category.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ BlogCategory)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-
-
-function BlogCategory({
-  data,
-  pageContext
-}) {
-  const isPreviousBlogs = () => {
-    if (pageContext.currentPage > 1) {
-      return true;
-    }
-  };
-
-  const PreviousBlogLink = () => {
-    if (pageContext.currentPage <= 2) {
-      return `/${pageContext.category}/`;
-    } else {
-      return `/${pageContext.category}/${pageContext.currentPage - 1}`;
-    }
-  };
-
-  const isMoreBlogs = () => {
-    if (pageContext.currentPage < pageContext.numPages) {
-      return true;
-    }
-  };
-
-  const NextBlogLink = () => {
-    return `/${pageContext.category}/${pageContext.currentPage + 1}`;
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "blog-list"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, pageContext.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container"
-  }, data.allMarkdownRemark.edges.map(({
-    node
-  }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: node.id
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: node.fields.slug
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
-    className: "blog-nav nav nav-justified my-5"
-  }, isPreviousBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    className: "nav-link-prev nav-item nav-link  rounded-left",
-    href: PreviousBlogLink()
-  }, "Previous", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
-    className: "arrow-prev fas fa-long-arrow-alt-left"
-  })), isMoreBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    className: "nav-link-next nav-item nav-link rounded",
-    href: NextBlogLink()
-  }, "Next", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
-    className: "arrow-next fas fa-long-arrow-alt-right"
-  }))));
-}
-const blogListQuery = "3676005940";
 
 /***/ }),
 
