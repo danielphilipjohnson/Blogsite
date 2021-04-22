@@ -69,7 +69,7 @@ const generateBlogItemPageForEachCategory = async (
     const previous =
       index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
     const next = index === 0 ? null : blogPosts[index - 1].node;
-    console.log(post);
+    console.log(previous);
     createPage({
       path: post.node.fields.slug,
       component: path.resolve(`./src/template/blog-template.js`),
@@ -87,10 +87,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // 2.a get all blogs from the chosen category
   await getAllBlogCategories(graphql).then((categories) => {
-    console.log("categories", categories);
     // 2.b iterate category and create pages for that blog
     categories.map(async (category) => {
-      console.log("category", category);
       // 2.b get all blogs from the chosen category
       generateBlogItemPageForEachCategory(graphql, createPage, category);
     });

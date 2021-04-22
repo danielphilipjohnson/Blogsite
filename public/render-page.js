@@ -3466,6 +3466,10 @@ function Template({
   pageContext
 }) {
   const post = data.markdownRemark;
+  const {
+    previous,
+    next
+  } = pageContext;
 
   const cupsOfCoffee = post => {
     let amountOfCoffees = "";
@@ -3477,17 +3481,30 @@ function Template({
     return amountOfCoffees;
   };
 
+  const previousLink = () => {
+    if (previous) {
+      return previous.fields.slug;
+    }
+  };
+
+  const nextLink = () => {
+    if (next) {
+      return next.fields.slug;
+    }
+  };
+
+  console.log(pageContext);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
-    className: "blog-post px-3 py-5 p-md-5"
+    className: "blog-post"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
     className: "blog-post-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "title mb-2"
+    className: "title"
   }, post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "meta mb-3"
+    className: "meta"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "date"
-  }, post.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+  }, post.frontmatter.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "time"
   }, cupsOfCoffee(post), " min read "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "blog-post-body"
@@ -3497,7 +3514,7 @@ function Template({
     href: "https://github.com/danielphilipjohnson"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "img-fluid",
-    src: post.cover,
+    src: post.frontmatter.cover,
     alt: "blog cover"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("figcaption", {
     className: "mt-2 text-center image-caption"
@@ -3505,14 +3522,27 @@ function Template({
     href: "https://unsplash.com/",
     target: "_blank",
     rel: "noreferrer"
-  }, post.imageCredit))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, post.frontmatter.imageCredit))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "container",
     dangerouslySetInnerHTML: {
       __html: post.html
     }
-  })));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
+    className: "blog-nav nav nav-justified my-5"
+  }, pageContext.previous && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: previousLink(),
+    activeClassName: "active",
+    className: "nav-link-prev nav-item nav-link rounded-left"
+  }, "Previous", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
+    className: "arrow-prev fas fa-long-arrow-alt-left"
+  })), pageContext.next && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: "nav-link-next nav-item nav-link rounded-right",
+    to: nextLink()
+  }, "Next", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
+    className: "arrow-next fas fa-long-arrow-alt-right"
+  }))));
 }
-const query = "1469686977";
+const query = "3914858701";
 
 /***/ }),
 
