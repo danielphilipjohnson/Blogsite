@@ -1,5 +1,18 @@
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStackOverflow,
+  faDev,
+  faHackerrank,
+  faCodepen,
+  faFreeCodeCamp,
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 function Banner() {
   const styleObj = {
     backgroundColor: "rgba(48,49,70,.64)",
@@ -25,40 +38,48 @@ function Banner() {
 
           <div className="md:w-2/3">
             <div className="mb-4">
-              <h1 className="text-6xl font-semibold mb-2">
+              <h1 className="text-6xl font-semibold mb-6">
                 Daniel <span style={{ color: "#94c85a" }}>Philip</span> Johnson
               </h1>
-              {/* 
-            <ul className="flex py-2 mb-4">
-              <li className="pr-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/linkedin.png"
-                  alt=""
-                />
-              </li>
-              <li className="pr-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/twitter.png"
-                  alt=""
-                />
-              </li>
-              <li className="pr-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/youtube-play.png"
-                  alt=""
-                />
-              </li>
-              <li className="pr-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/source-code.png"
-                  alt=""
-                />
-              </li>
-            </ul> */}
+              <ul className="flex mb-6">
+                <li className="mr-4 text-5xl">
+                  <a
+                    href="https://www.linkedin.com/in/daniel-philip-johnson/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faLinkedin} />
+                  </a>
+                </li>
+                <li className="mr-4 text-5xl">
+                  <a
+                    href="https://twitter.com/danielp_johnson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </a>
+                </li>
+                <li className="mr-4 text-5xl">
+                  <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                </li>
+                <li className="mr-4 text-5xl">
+                  <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faYoutube} />
+                  </a>
+                </li>
+                <li className="mr-4 text-5xl">
+                  <a
+                    href="https://github.com/danielphilipjohnson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon icon={faCode} />
+                  </a>
+                </li>
+              </ul>
 
               <div className="">
                 <p className="text-xl mb-4">

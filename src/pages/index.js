@@ -3,10 +3,9 @@ import { Link, graphql } from "gatsby";
 // import Header from "../components/header";
 import Nav from "../layout/nav";
 import Banner from "../layout/banner";
+import Footer from "../layout/footer";
 
 export default function Home({ data }) {
-  // get links of category
-
   const categoryNav = () => {
     return data.categories.distinct.map((category) => {
       return (
@@ -68,6 +67,7 @@ export default function Home({ data }) {
           </Link>
         </div>
       ))} */}
+      <Footer />
     </div>
   );
 }
@@ -98,3 +98,4 @@ export const query = graphql`
     }
   }
 `;
+<h3 className="uppercase font-bold border-b-2 mb-4">Internal links</h3>;
