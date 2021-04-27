@@ -1,18 +1,12 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import Header from "../components/header";
+// import Header from "../components/header";
+import Nav from "../layout/nav";
+import Banner from "../layout/banner";
 
 export default function Home({ data }) {
   // get links of category
-  const styleObj = {
-    backgroundColor: "rgba(48,49,70,.64)",
-    backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${"https://www.danielphilipjohnson.com/static/showcase1-c58cf64918185dd34948a4d0d8860f05.jpg"})`,
-    backgroundOrigin: "padding-box",
-    backgroundClip: "border-box",
-    backgroundBlendMode: "multiply",
-  };
+
   const categoryNav = () => {
     return data.categories.distinct.map((category) => {
       return (
@@ -50,82 +44,15 @@ export default function Home({ data }) {
 
   return (
     <div>
-      <header className="sticky top-0 z-40  w-full max-w-8xl mx-auto bg-white border-b border-gray-200 lg:border-b-0">
-        <div className="px-4 py-3 text-gray-700">
-          <nav className="flex items-center justify-between">
-            <span class="inline-flex w-14 h-14 font-header font-bold text-xl justify-center items-center text-center text-front border-2 border-solid border-front rounded-full">
-              DPJ
-            </span>
-            <ul className="flex justify-end">
-              <li className="px-2">Portfolio</li>
-              <li className="px-2">Blog</li>
-            </ul>
-          </nav>
+      <Nav />
+      <Banner />
+
+      <div className="container">
+        <div className="text-center font-bold  text-2xl mb-2">
+          <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
+            <h2 className="text-5xl">Latest posts</h2>
+          </header>
         </div>
-      </header>
-      <header className="w-full pt-4 mb-4" style={styleObj}>
-        <div className="grid grid-cols-1 md:grid-cols-4  items-center justify-items-center md:p-8 text-white">
-          <img
-            className="h-36 md:h-46 object-contain rounded-full mb-4 md:mr-7"
-            src="https://www.danielphilipjohnson.com/static/profile-90ff2d9e23d36ceb0d775bc4d2fb48f5.jpg"
-            alt=""
-          />
-          <div className="text-center mb-4">
-            <p className="text-xl font-semibold mb-2">
-              Daniel <span style={{ color: "#94c85a" }}>Philip</span> Johnson
-            </p>
-            <h2 className="text-2xl text-white-900 font-bold">
-              &lt;FrontEndEnginer/&gt;
-            </h2>
-          </div>
-          <div className="mb-2 md:col-span-2 md:flex flex-col items-end">
-            <div className="mb-2">
-              <button className="border border-white-800 px-2 py-1 mr-2">
-                Get in Touch
-              </button>
-              <button className="border border-white-800 px-2 py-1">
-                About Me
-              </button>
-            </div>
-
-            <ul className="flex py-2">
-              <li className="px-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/linkedin.png"
-                  alt=""
-                />
-              </li>
-              <li className="px-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/twitter.png"
-                  alt=""
-                />
-              </li>
-              <li className="px-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/youtube-play.png"
-                  alt=""
-                />
-              </li>
-              <li className="px-2">
-                <img
-                  className="h-8"
-                  src="https://img.icons8.com/ios/250/ffffff/source-code.png"
-                  alt=""
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* <h4>{data.blogs.totalCount} Posts</h4> */}
-      </header>
-
-      <div className="container mx-auto px-4">
-        <div className="text-center font-bold  text-2xl mb-2">Latest posts</div>
         <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
           {categoryNav()}
         </ul>
