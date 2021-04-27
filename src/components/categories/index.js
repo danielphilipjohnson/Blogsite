@@ -1,13 +1,9 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout";
-import Blogs from "../components/blogs";
-import Categories from "../components/categories";
-
-export default function Home({ data }) {
-  const categoryNav = () => {
-    return data.categories.distinct.map((category) => {
+function Categories({ categories }) {
+  <div>
+    {categories.map((category) => {
       return (
         <div className="w-full md:w-1/2  mb-6 md:mb-10 md:pr-6">
           <div className="group relative">
@@ -35,44 +31,8 @@ export default function Home({ data }) {
           </div>
         </div>
       );
-    });
-  };
-
-  return (
-    <>
-      <Layout>
-        <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
-        <Categories categories={data.categories.distinct} />
-      </Layout>
-    </>
-  );
+    })}
+  </div>;
 }
 
-export const query = graphql`
-  query {
-    blogs: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 2
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            category
-          }
-
-          excerpt
-        }
-      }
-    }
-    categories: allMarkdownRemark {
-      distinct(field: frontmatter___category)
-    }
-  }
-`;
+export default Categories;
