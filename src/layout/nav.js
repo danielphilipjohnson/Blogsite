@@ -8,40 +8,10 @@ function Nav() {
           <span class="inline-flex w-14 h-14 font-header font-bold text-xl justify-center items-center text-center text-front border-2 border-solid border-front rounded-full">
             DPJ
           </span>
-          {/* <ul className="flex justify-end">
-            <li className="px-2">Portfolio</li>
-            <li className="px-2">Blog</li>
-          </ul> */}
-          <ul className="flex justify-end">
-            <li className="pr-2">
-              <img
-                className="h-8"
-                src="https://img.icons8.com/ios/250/000000/linkedin.png"
-                alt=""
-              />
-            </li>
-            <li className="pr-2">
-              <img
-                className="h-8"
-                src="https://img.icons8.com/ios/250/000000/twitter.png"
-                alt=""
-              />
-            </li>
-            <li className="pr-2">
-              <img
-                className="h-8"
-                src="https://img.icons8.com/ios/250/000000/youtube-play.png"
-                alt=""
-              />
-            </li>
-            <li className="pr-2">
-              <img
-                className="h-8"
-                src="https://img.icons8.com/ios/250/000000/source-code.png"
-                alt=""
-              />
-            </li>
-          </ul>
+
+          <span className="bg-transparent pr-7 py-1 text-gray-900 font-large font-bold">
+            v0.0.1
+          </span>
         </nav>
       </div>
     </header>
