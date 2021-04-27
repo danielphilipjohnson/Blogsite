@@ -3433,21 +3433,132 @@ function Home({
   data
 }) {
   // get links of category
+  const styleObj = {
+    // content: "",
+    // position: "absolute",
+    // top: "0",
+    // right: "0",
+    // width: "100%",
+    // height: "100%",
+    // zIndex: "10",
+    // background: "rgba(48,49,70,.9)",
+    // background: `linear-gradient(0deg, rgba(48, 49, 70, 0.9), rgba(255, 0, 150, 0.3)), url(
+    //   ${"https://www.danielphilipjohnson.com/static/showcase1-c58cf64918185dd34948a4d0d8860f05.jpg"}
+    // )`,
+    backgroundBlendMode: "multiply",
+    backgroundAttachment: "fixed",
+    background: `url(
+      ${"https://www.danielphilipjohnson.com/static/showcase1-c58cf64918185dd34948a4d0d8860f05.jpg"}
+    ) rgba(48,49,70,.9) no-repeat fixed  center 
+    `,
+    backgroundSize: "cover"
+  };
+
   const categoryNav = () => {
     return data.categories.distinct.map(category => {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        to: `/${category}/`
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, category));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "w-full md:w-1/2  mb-6 md:mb-10 md:pr-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "group relative"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("figure", {
+        className: " rounded-lg"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+        class: "transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg",
+        src: "https://source.unsplash.com/1600x900/?nature",
+        lazy: "loaded",
+        style: {
+          height: "350px",
+          width: "800px"
+        }
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: `/${category}/`,
+        className: "absolute inset-0 p-6 flex flex-col items-start cursor-pointer hover:cursor-planet focus:cursor-planet transition-cursor duration-300 ease-in-out text-white"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+        className: "w-full"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+        className: "bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-xs rounded"
+      }, category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+        className: "w-blog-title max-w-full pt-4 font-bold text-2xl md:text-3xl leading-snug text-white"
+      }, "Lorem ipsum dolor sit amet consectetur, adipisicing elit.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+        className: "mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight"
+      }, "Read more"))));
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Amazing Pandas Eating Things"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, data.blogs.totalCount, " Posts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, categoryNav()), data.blogs.edges.map(({
-    node
-  }) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: node.id
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: node.fields.slug
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, node.frontmatter.title, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "\u2014 ", node.frontmatter.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, node.excerpt)))));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "sticky top-0 z-40  w-full max-w-8xl mx-auto bg-white border-b border-gray-200 lg:border-b-0"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "px-4 py-3 text-gray-700"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
+    className: "flex items-center justify-between"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    class: "inline-flex w-14 h-14 lg:mt-4 font-header font-bold text-xl justify-center items-center text-center text-front border-2 border-solid border-front rounded-full"
+  }, "DPJ"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "flex justify-end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, "Portfolio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, "Blog"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "w-full pt-4 mb-4",
+    style: styleObj
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-4  items-center justify-items-center md:p-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "h-36 md:h-46 object-contain rounded-full mb-4 md:mr-7",
+    src: "https://www.danielphilipjohnson.com/static/profile-90ff2d9e23d36ceb0d775bc4d2fb48f5.jpg",
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-center mb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-xl font-semibold mb-2"
+  }, "Daniel ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    style: {
+      color: "#94c85a"
+    }
+  }, "Philip"), " Johnson"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    className: "text-2xl text-gray-900 font-bold"
+  }, "<FrontEndEnginer/>")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "mb-2 md:col-span-2 md:flex flex-col items-end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "border border-gray-800 px-2 py-1 mr-2"
+  }, "Get in Touch"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "border border-gray-800 px-2 py-1"
+  }, "About Me")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "flex py-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "h-8",
+    src: "https://img.icons8.com/ios/250/000000/linkedin.png",
+    alt: ""
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "h-8",
+    src: "https://img.icons8.com/ios/250/000000/twitter.png",
+    alt: ""
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "h-8",
+    src: "https://img.icons8.com/ios/250/000000/youtube-play.png",
+    alt: ""
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    className: "h-8",
+    src: "https://img.icons8.com/ios/250/000000/source-code.png",
+    alt: ""
+  })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container mx-auto px-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-center font-bold  text-2xl mb-2"
+  }, "Latest posts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "flex flex-wrap md:-mr-6 pb-4 md:pb-10"
+  }, categoryNav())));
 }
 const query = "2175556156";
 
