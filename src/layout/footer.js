@@ -18,12 +18,12 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-r from-blue-700 to-purple-800 text-white  w-full">
       <div className="container">
-        <div className="flex justify-between  py-10 md:pt-16">
-          <div className="md:w-1/3">
+        <div className="flex flex-col md:flex-row justify-between  py-10 md:pt-16">
+          <div className="md:w-1/3 order-last md:order-first">
             <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
               Internal links
             </h3>
-            <nav>
+            <nav className="">
               <ul>
                 <li className="my-2">
                   <Link to={`/blog/`} className="">
@@ -60,7 +60,7 @@ function Footer() {
             <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
               Social links
             </h3>
-            <ul className="flex">
+            <ul className="flex mb-8">
               <li className="mr-4 text-3xl">
                 <a
                   href="https://www.linkedin.com/in/daniel-philip-johnson/"
@@ -101,7 +101,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="flex flex-col md:w-1/3 justify-between">
+          <div className="flex flex-col md:w-1/3 justify-between mb-8">
             <nav>
               <h3 className="uppercase font-bold border-b-2 mb-4 w-48">
                 Developer links
