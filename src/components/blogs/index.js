@@ -16,9 +16,13 @@ function Blogs({ blogs, title }) {
               <figure className=" rounded-lg">
                 <img
                   class="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
-                  src="https://source.unsplash.com/1600x900/?nature"
+                  src={node.frontmatter.cover}
                   lazy="loaded"
-                  style={{ height: "350px", width: "800px" }}
+                  style={{
+                    height: "350px",
+                    width: "800px",
+                    filter: "brightness(.3)",
+                  }}
                 />
               </figure>
               <Link

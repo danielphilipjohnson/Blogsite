@@ -33,6 +33,7 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
             category
+            cover
           }
 
           excerpt
