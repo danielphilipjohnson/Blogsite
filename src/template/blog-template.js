@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Layout from "../components/layout";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
@@ -24,58 +25,60 @@ export default function Template({ data, pageContext }) {
 
   console.log(pageContext);
   return (
-    <article className="blog-post">
-      <header className="blog-post-header">
-        <h2 className="title">{post.title}</h2>
-        <div className="meta">
-          <span className="date">{post.frontmatter.date}</span>
-          <span className="time">{cupsOfCoffee(post)} min read </span>
-        </div>
-      </header>
+    <Layout>
+      <article className="blog-post">
+        <header className="blog-post-header">
+          <h2 className="title">{post.title}</h2>
+          <div className="meta">
+            <span className="date">{post.frontmatter.date}</span>
+            <span className="time">{cupsOfCoffee(post)} min read </span>
+          </div>
+        </header>
 
-      <div className="blog-post-body">
-        <figure className="blog-banner">
-          <a href="https://github.com/danielphilipjohnson">
-            <img
-              className="img-fluid"
-              src={post.frontmatter.cover}
-              alt="blog cover"
-            />
-          </a>
-          <figcaption className="mt-2 text-center image-caption">
-            Image Credit:
-            <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
-              {post.frontmatter.imageCredit}
+        <div className="blog-post-body">
+          <figure className="blog-banner">
+            <a href="https://github.com/danielphilipjohnson">
+              <img
+                className="img-fluid"
+                src={post.frontmatter.cover}
+                alt="blog cover"
+              />
             </a>
-          </figcaption>
-        </figure>
-        <div
-          className="container"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        ></div>
-      </div>
-      <nav className="blog-nav nav nav-justified my-5">
-        {pageContext.previous && (
-          <Link
-            to={previousLink()}
-            activeClassName="active"
-            className="nav-link-prev nav-item nav-link rounded-left"
-          >
-            Previous
-            <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
-          </Link>
-        )}
+            <figcaption className="mt-2 text-center image-caption">
+              Image Credit:
+              <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
+                {post.frontmatter.imageCredit}
+              </a>
+            </figcaption>
+          </figure>
+          <div
+            className="container"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          ></div>
+        </div>
+        <nav className="blog-nav nav nav-justified my-5">
+          {pageContext.previous && (
+            <Link
+              to={previousLink()}
+              activeClassName="active"
+              className="nav-link-prev nav-item nav-link rounded-left"
+            >
+              Previous
+              <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
+            </Link>
+          )}
 
-        {pageContext.next && (
-          <Link
-            className="nav-link-next nav-item nav-link rounded-right"
-            to={nextLink()}
-          >
-            Next<i className="arrow-next fas fa-long-arrow-alt-right"></i>
-          </Link>
-        )}
-      </nav>
-    </article>
+          {pageContext.next && (
+            <Link
+              className="nav-link-next nav-item nav-link rounded-right"
+              to={nextLink()}
+            >
+              Next<i className="arrow-next fas fa-long-arrow-alt-right"></i>
+            </Link>
+          )}
+        </nav>
+      </article>
+    </Layout>
   );
 }
 
