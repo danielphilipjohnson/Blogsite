@@ -17085,10 +17085,8 @@ function Home({
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
         className: "w-full"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-        className: "bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-xs rounded"
-      }, category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-        className: "w-blog-title max-w-full pt-4 font-bold text-2xl md:text-3xl leading-snug text-white"
-      }, "Lorem ipsum dolor sit amet consectetur, adipisicing elit.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+        className: "bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded"
+      }, category)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
         className: "mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight"
       }, "Read more"))));
     });
@@ -17097,9 +17095,19 @@ function Home({
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_2__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_blogs__WEBPACK_IMPORTED_MODULE_3__.default, {
     blogs: data.blogs.edges,
     title: "Latest Posts"
-  })));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-center font-bold  text-2xl mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
+    className: "py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    className: "text-5xl"
+  }, "Topic"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "flex flex-wrap md:-mr-6 pb-4 md:pb-10"
+  }, categoryNav()))));
 }
-const query = "1716608163";
+const query = "3001732506";
 
 /***/ }),
 

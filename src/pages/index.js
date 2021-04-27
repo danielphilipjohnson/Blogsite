@@ -23,12 +23,9 @@ export default function Home({ data }) {
               className="absolute inset-0 p-6 flex flex-col items-start cursor-pointer hover:cursor-planet focus:cursor-planet transition-cursor duration-300 ease-in-out text-white"
             >
               <header className="w-full">
-                <p className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-xs rounded">
+                <p className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded">
                   {category}
                 </p>
-                <h2 className="w-blog-title max-w-full pt-4 font-bold text-2xl md:text-3xl leading-snug text-white">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                </h2>
               </header>
               <p className="mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight">
                 Read more
@@ -43,17 +40,17 @@ export default function Home({ data }) {
   return (
     <>
       <Layout>
-        {/* <div className="container">
+        <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
+        <div className="container">
           <div className="text-center font-bold  text-2xl mb-2">
             <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
-              <h2 className="text-5xl">Latest posts</h2>
+              <h2 className="text-5xl">Topic</h2>
             </header>
           </div>
           <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
             {categoryNav()}
           </ul>
-        </div> */}
-        <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
+        </div>
       </Layout>
     </>
   );
@@ -63,6 +60,7 @@ export const query = graphql`
   query {
     blogs: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      limit: 2
     ) {
       totalCount
       edges {
