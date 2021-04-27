@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby";
 import Nav from "../layout/nav";
 import Banner from "../layout/banner";
 import Footer from "../layout/footer";
+import Layout from "../components/layout";
 
 export default function Home({ data }) {
   const categoryNav = () => {
@@ -42,20 +43,19 @@ export default function Home({ data }) {
   };
 
   return (
-    <div>
-      <Nav />
-      <Banner />
-
-      <div className="container">
-        <div className="text-center font-bold  text-2xl mb-2">
-          <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
-            <h2 className="text-5xl">Latest posts</h2>
-          </header>
+    <>
+      <Layout>
+        <div className="container">
+          <div className="text-center font-bold  text-2xl mb-2">
+            <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
+              <h2 className="text-5xl">Latest posts</h2>
+            </header>
+          </div>
+          <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
+            {categoryNav()}
+          </ul>
         </div>
-        <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
-          {categoryNav()}
-        </ul>
-      </div>
+      </Layout>
 
       {/* {data.blogs.edges.map(({ node }) => (
         <div key={node.id}>
@@ -67,8 +67,7 @@ export default function Home({ data }) {
           </Link>
         </div>
       ))} */}
-      <Footer />
-    </div>
+    </>
   );
 }
 

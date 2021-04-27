@@ -16577,6 +16577,34 @@ exports.getStyleTag = () => React.createElement('style', {
 
 /***/ }),
 
+/***/ "./src/components/layout/index.js":
+/*!****************************************!*\
+  !*** ./src/components/layout/index.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Layout)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _layout_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../layout/nav */ "./src/layout/nav.js");
+/* harmony import */ var _layout_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layout/banner */ "./src/layout/banner.js");
+/* harmony import */ var _layout_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../layout/footer */ "./src/layout/footer.js");
+
+
+
+
+function Layout({
+  children
+}) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_banner__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_footer__WEBPACK_IMPORTED_MODULE_3__.default, null));
+}
+
+/***/ }),
+
 /***/ "./src/layout/banner.js":
 /*!******************************!*\
   !*** ./src/layout/banner.js ***!
@@ -16794,7 +16822,7 @@ function Footer() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     className: "uppercase font-bold border-b-2 mb-4 w-36"
   }, "Social links"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
-    className: "flex mb-4"
+    className: "flex mb-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
     className: "mr-4 text-3xl"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
@@ -16836,7 +16864,7 @@ function Footer() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faCode
   }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex flex-col md:w-1/3 justify-between"
+    className: "flex flex-col md:w-1/3 justify-between mb-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     className: "uppercase font-bold border-b-2 mb-4 w-48"
   }, "Developer links"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
@@ -16962,8 +16990,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout/nav */ "./src/layout/nav.js");
 /* harmony import */ var _layout_banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout/banner */ "./src/layout/banner.js");
 /* harmony import */ var _layout_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layout/footer */ "./src/layout/footer.js");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout/index.js");
 
  // import Header from "../components/header";
+
 
 
 
@@ -17002,7 +17032,7 @@ function Home({
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_banner__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_5__.default, null, "hello world"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_nav__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_layout_banner__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "text-center font-bold  text-2xl mb-2"
