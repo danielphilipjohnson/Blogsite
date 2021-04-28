@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import "./blog-styles.css";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
@@ -28,38 +29,44 @@ export default function Template({ data, pageContext }) {
   return (
     <Layout>
       <article className="container">
-        <span className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded">
+        <span className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded my-8">
           {post.frontmatter.category}
         </span>
-        <header className="blog-post-header">
-          <h1 className="text-6xl font-bold">{post.frontmatter.title}</h1>
+        <header className="blog-post-header mb-4">
+          <h1 className="text-6xl font-bold mb-2 leading-snug">
+            {post.frontmatter.title}
+          </h1>
           <p>Created by Daniel Philip Johnson</p>
           <div className="meta">
-            <span className="date">
-              Last updated on {post.frontmatter.date}
-            </span>
-            <p className="time">{cupsOfCoffee(post)} min read </p>
+            <p className="date mt-2">Last updated on {post.frontmatter.date}</p>
+            <p className="time mt-2">{cupsOfCoffee(post)} min read </p>
           </div>
         </header>
 
         <div className="blog-post-body">
-          <figure className="blog-banner">
+          <figure className="blog-banner mb-4">
             <a href="https://github.com/danielphilipjohnson">
               <img
-                className="shadow-lg object-cover rounded-lg"
+                className="w-full shadow-lg object-cover rounded-lg"
                 src={post.frontmatter.cover}
                 alt="blog cover"
               />
             </a>
-            <figcaption className="mt-2 text-center image-caption">
-              Image Credit:
-              <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
-                {post.frontmatter.imageCredit}
-              </a>
+            <figcaption className="mt-2  text-center image-caption">
+              <p className="pt-3">
+                Image Credit:
+                <a
+                  href="https://unsplash.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {post.frontmatter.imageCredit}
+                </a>
+              </p>
             </figcaption>
           </figure>
           <div
-            className="container"
+            className="custom-blog"
             dangerouslySetInnerHTML={{ __html: post.html }}
           ></div>
         </div>
