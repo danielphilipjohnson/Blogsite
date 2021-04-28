@@ -14,7 +14,23 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-embed-snippet`,
+            options: {
+              directory: `${__dirname}/snippets/`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
+        ],
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-fontawesome-css`,
   ],

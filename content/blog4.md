@@ -7,6 +7,10 @@ cover: "https://source.unsplash.com/1000x400/?nature,water"
 imageCredit: "unsplash"
 ---
 
+# Sample HTML
+
+`embed:html-code.html`
+
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...
 
 ## Heading2
@@ -36,7 +40,18 @@ Some text with an inline `code` snippet
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...
 
 ```javascript
-   [...]
+const cupsOfCoffee = (post) => {
+  let amountOfCoffees = "";
+  for (let i = 0; i < post.timeToRead; i++) {
+    amountOfCoffees += "☕ ";
+  }
+  return amountOfCoffees;
+};
+```
+
+```shell
+alias chrome = ‘/opt/google/chrome/chrome’
+
 ```
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...
