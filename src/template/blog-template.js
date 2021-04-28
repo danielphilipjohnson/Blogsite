@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
+  console.log(post);
   const { previous, next } = pageContext;
   const cupsOfCoffee = (post) => {
     let amountOfCoffees = "";
@@ -26,12 +27,18 @@ export default function Template({ data, pageContext }) {
   console.log(pageContext);
   return (
     <Layout>
-      <article className="blog-post">
+      <article className="container">
+        <span className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded">
+          {post.frontmatter.category}
+        </span>
         <header className="blog-post-header">
-          <h2 className="title">{post.title}</h2>
+          <h1 className="text-6xl font-bold">{post.frontmatter.title}</h1>
+          <p>Created by Daniel Philip Johnson</p>
           <div className="meta">
-            <span className="date">{post.frontmatter.date}</span>
-            <span className="time">{cupsOfCoffee(post)} min read </span>
+            <span className="date">
+              Last updated on {post.frontmatter.date}
+            </span>
+            <p className="time">{cupsOfCoffee(post)} min read </p>
           </div>
         </header>
 
@@ -39,7 +46,7 @@ export default function Template({ data, pageContext }) {
           <figure className="blog-banner">
             <a href="https://github.com/danielphilipjohnson">
               <img
-                className="img-fluid"
+                className="shadow-lg object-cover rounded-lg"
                 src={post.frontmatter.cover}
                 alt="blog cover"
               />
@@ -95,6 +102,7 @@ export const query = graphql`
         title
         cover
         imageCredit
+        category
       }
     }
   }

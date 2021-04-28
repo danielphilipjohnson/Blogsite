@@ -1,13 +1,8 @@
 import React from "react";
+import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import {
-  faStackOverflow,
-  faDev,
-  faHackerrank,
-  faCodepen,
-  faFreeCodeCamp,
-  faGithub,
   faLinkedin,
   faTwitter,
   faYoutube,
@@ -130,19 +125,22 @@ function Banner() {
             </div>
             <div className="mb-2 md:flex flex-col text-center md:text-left">
               <div className="mb-2">
-                <button className="border border-white-800 px-2 py-1 mr-2">
+                <a
+                  href="https://www.danielphilipjohnson.com/contact/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-white-800 px-3 py-2 mr-2"
+                >
                   Get in Touch
-                </button>
-                <button className="border border-white-800 px-2 py-1">
+                </a>
+                <Link to="about" className="border border-white-800 px-3 py-2">
                   About Me
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <h4>{data.blogs.totalCount} Posts</h4> */}
     </header>
   );
 }

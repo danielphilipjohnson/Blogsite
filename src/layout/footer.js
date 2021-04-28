@@ -80,12 +80,20 @@ function Footer() {
                 </a>
               </li>
               <li className="mr-4 text-3xl">
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.instagram.com/danielphilipjohnson/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>
               <li className="mr-4 text-3xl">
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.youtube.com/c/DanielPhilipJohnson/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </li>
