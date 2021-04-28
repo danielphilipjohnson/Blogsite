@@ -1,2 +1,2 @@
 import "./src/styles/global.css";
-// require("prismjs/themes/prism-coy.css");
+import "@fontsource/quattrocento-sans"; // Defaults to weight 400.

@@ -1,10 +1,24 @@
-.custom-blog h2 {
-  font-size: 1.875rem;
+.custom-blog {
+  font-family: "Quattrocento Sans";
+  font-size: 1.2rem;
+}
+.custom-blog h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 2.25rem;
   padding-bottom: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   padding-top: 1rem;
+}
+.custom-blog h1 {
+  font-size: 3.75rem;
+}
+.custom-blog h2 {
+  font-size: 1.875rem;
 }
 
 .custom-blog p {
