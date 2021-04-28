@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
-import "@fontsource/open-sans"; // Defaults to weight 400 with all styles included.
 import "./blog-styles.css";
 
 export default function Template({ data, pageContext }) {
