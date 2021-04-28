@@ -27,12 +27,16 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
-      <article className="container">
-        <span className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded my-8">
+      <article className="container py-4">
+        <span
+          className="bg-gradient-to-r from-blue-700 to-green-800 
+        w-max font-medium text-white block uppercase 
+        py-4 px-2 md:text-4xl rounded mb-4"
+        >
           {post.frontmatter.category}
         </span>
-        <header className="blog-post-header mb-4">
-          <h1 className="text-6xl font-bold mb-2 leading-snug">
+        <header className="mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight md:leading-snug">
             {post.frontmatter.title}
           </h1>
           <p>Created by Daniel Philip Johnson</p>
@@ -41,52 +45,49 @@ export default function Template({ data, pageContext }) {
             <p className="time mt-2">{cupsOfCoffee(post)} min read </p>
           </div>
         </header>
-
-        <div className="blog-post-body">
-          <figure className="blog-banner mb-4">
-            <a href="https://github.com/danielphilipjohnson">
-              <img
-                className="w-full shadow-lg object-cover rounded-lg"
-                src={post.frontmatter.cover}
-                alt="blog cover"
-              />
-            </a>
-            <figcaption className="mt-2  text-center image-caption">
-              <p className="pt-3">
-                Image Credit:
-                <a
-                  href="https://unsplash.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {post.frontmatter.imageCredit}
-                </a>
-              </p>
-            </figcaption>
-          </figure>
-          <div
-            className="custom-blog"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          ></div>
-        </div>
-        <nav className="blog-nav nav nav-justified my-5">
+        <figure className="mb-4">
+          <a href="https://github.com/danielphilipjohnson">
+            <img
+              className="w-full shadow-lg object-cover rounded-lg"
+              src={post.frontmatter.cover}
+              alt="blog cover"
+            />
+          </a>
+          <figcaption className="mt-2 text-center image-caption">
+            <p className="pt-3">
+              <span className="mr-2">Image Credit:</span>
+              <a
+                className="font-bold"
+                href="https://unsplash.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {post.frontmatter.imageCredit}
+              </a>
+            </p>
+          </figcaption>
+        </figure>
+        <div
+          className="custom-blog"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        ></div>
+        <nav className="my-8">
           {pageContext.previous && (
             <Link
               to={previousLink()}
               activeClassName="active"
-              className="nav-link-prev nav-item nav-link rounded-left"
+              className="border border-white-800 px-3 py-2 mr-2"
             >
               Previous
-              <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
             </Link>
           )}
 
           {pageContext.next && (
             <Link
-              className="nav-link-next nav-item nav-link rounded-right"
+              className="border border-white-800 px-3 py-2 mr-2"
               to={nextLink()}
             >
-              Next<i className="arrow-next fas fa-long-arrow-alt-right"></i>
+              Next
             </Link>
           )}
         </nav>

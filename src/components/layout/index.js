@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "../../layout/nav";
-import Banner from "../../layout/banner";
 import Footer from "../../layout/footer";
 
 export default function Layout({ children }) {
@@ -8,7 +7,7 @@ export default function Layout({ children }) {
     <>
       <Nav />
 
-      <div>{children}</div>
+      <div className="bg-gray-50">{children}</div>
       <Footer />
     </>
   );
