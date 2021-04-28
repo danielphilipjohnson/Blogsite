@@ -12,10 +12,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       basePath: `./`,
     });
 
+    const removeFilename = slug.replace("/blog/", "/").split("/")[1];
+    var cleanedSlug = "/" + removeFilename + "/";
+
     createNodeField({
       node,
       name: `slug`,
-      value: `/${node.frontmatter.category}${slug}`,
+      value: `${cleanedSlug}`,
     });
   }
 };

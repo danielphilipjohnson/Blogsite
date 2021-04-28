@@ -5,7 +5,7 @@ import "./blog-styles.css";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
-  console.log(post);
+
   const { previous, next } = pageContext;
   const cupsOfCoffee = (post) => {
     let amountOfCoffees = "";
@@ -25,7 +25,6 @@ export default function Template({ data, pageContext }) {
     }
   };
 
-  console.log(pageContext);
   return (
     <Layout>
       <article className="container">
