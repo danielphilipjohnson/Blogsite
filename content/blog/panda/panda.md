@@ -1,7 +1,7 @@
 ---
 title: "Sweet Pandas Eating Sweets"
 date: "2017-08-10"
-category: "animal"
+category: "animal"cover: "https://source.unsplash.com/1000x400/?nature,water"
 ---
 
 Pandas are really sweet.

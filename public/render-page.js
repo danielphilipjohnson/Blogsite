@@ -15,6 +15,7 @@
 exports.ssrComponents = {
   "component---cache-dev-404-page-js": preferDefault(__webpack_require__(/*! ./.cache/dev-404-page.js */ "./.cache/dev-404-page.js")),
   "component---src-pages-index-js": preferDefault(__webpack_require__(/*! ./src/pages/index.js */ "./src/pages/index.js")),
+  "component---src-template-blog-category-js": preferDefault(__webpack_require__(/*! ./src/template/blog-category.js */ "./src/template/blog-category.js")),
   "component---src-template-blog-template-js": preferDefault(__webpack_require__(/*! ./src/template/blog-template.js */ "./src/template/blog-template.js"))
   }
 
@@ -17148,6 +17149,73 @@ const query = "456059293";
 
 /***/ }),
 
+/***/ "./src/template/blog-category.js":
+/*!***************************************!*\
+  !*** ./src/template/blog-category.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BlogCategory)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout/index.js");
+/* harmony import */ var _components_blogs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/blogs */ "./src/components/blogs/index.js");
+
+
+
+
+function BlogCategory({
+  data,
+  pageContext
+}) {
+  const isPreviousBlogs = () => {
+    if (pageContext.currentPage > 1) {
+      return true;
+    }
+  };
+
+  const PreviousBlogLink = () => {
+    if (pageContext.currentPage <= 2) {
+      return `/${pageContext.category}/`;
+    } else {
+      return `/${pageContext.category}/${pageContext.currentPage - 1}`;
+    }
+  };
+
+  const isMoreBlogs = () => {
+    if (pageContext.currentPage < pageContext.numPages) {
+      return true;
+    }
+  };
+
+  const NextBlogLink = () => {
+    return `/${pageContext.category}/${pageContext.currentPage + 1}`;
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_layout__WEBPACK_IMPORTED_MODULE_2__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "blog-list"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_blogs__WEBPACK_IMPORTED_MODULE_3__.default, {
+    blogs: data.allMarkdownRemark.edges,
+    title: pageContext.category
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
+    className: "w-full flex justify-center mb-5"
+  }, isPreviousBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "border border-black px-4 py-2 mr-2",
+    href: PreviousBlogLink()
+  }, "Previous"), isMoreBlogs() && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "border border-black px-4 py-2 mr-2",
+    href: NextBlogLink()
+  }, "Next"))));
+}
+const blogListQuery = "3676005940";
+
+/***/ }),
+
 /***/ "./src/template/blog-template.js":
 /*!***************************************!*\
   !*** ./src/template/blog-template.js ***!
@@ -17227,7 +17295,10 @@ function Template({
     className: "mt-2 text-center image-caption"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "pt-3"
-  }, "Image Credit:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "mr-2"
+  }, "Image Credit:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "font-bold",
     href: "https://unsplash.com/",
     target: "_blank",
     rel: "noreferrer"
@@ -17237,7 +17308,7 @@ function Template({
       __html: post.html
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
-    className: "my-5"
+    className: "my-8"
   }, pageContext.previous && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: previousLink(),
     activeClassName: "active",
