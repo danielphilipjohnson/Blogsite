@@ -63,7 +63,7 @@ function Categories({ categories }) {
           <h2 className="text-5xl capitalize">Topics</h2>
         </header>
       </div>
-      <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
+      <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
         {categories.map((category) => {
           return (
             <div
@@ -91,7 +91,7 @@ function Categories({ categories }) {
             </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }

@@ -9,11 +9,11 @@ export default function About() {
       <div className="container pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
-          <span role="img" aria-labelledby="hello">
+          <span role="img" aria-label="hello">
             👋{" "}
           </span>
           I am Daniel
-          <span role="img" aria-labelledby="sparkles">
+          <span role="img" aria-label="sparkles">
             ✨
           </span>{" "}
           <span role="img" aria-labelledby="I use my laptop and">
@@ -26,7 +26,7 @@ export default function About() {
           in Cornwall
         </h2>
 
-        <p class="mb-4 text-lg leading-relaxed border-l-4 border-indigo-500 px-4">
+        <p className="mb-4 text-lg leading-relaxed border-l-4 border-indigo-500 px-4">
           I am a Front-End Engineer with more than 2+ years experience building
           responsive and accessible web-applications and 6 months experience in
           the startup world working remotely withcodecareer.io. I am looking to

@@ -66,6 +66,7 @@ function Footer() {
                   href="https://www.linkedin.com/in/daniel-philip-johnson/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="linkedin"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>
@@ -75,6 +76,7 @@ function Footer() {
                   href="https://twitter.com/danielp_johnson"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="twitter"
                 >
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
@@ -84,6 +86,7 @@ function Footer() {
                   href="https://www.instagram.com/danielphilipjohnson/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="instagram"
                 >
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
@@ -93,6 +96,7 @@ function Footer() {
                   href="https://www.youtube.com/c/DanielPhilipJohnson/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="youtube"
                 >
                   <FontAwesomeIcon icon={faYoutube} />
                 </a>
@@ -102,6 +106,7 @@ function Footer() {
                   href="https://github.com/danielphilipjohnson"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="source code"
                 >
                   <FontAwesomeIcon icon={faCode} />
                 </a>
@@ -120,6 +125,7 @@ function Footer() {
                     href="https://dev.to/danielphilipjohnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="dev"
                   >
                     <FontAwesomeIcon icon={faDev} />
                   </a>
@@ -129,6 +135,7 @@ function Footer() {
                     href="https://www.hackerrank.com/daniel_p_johnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="hackerrank"
                   >
                     <FontAwesomeIcon icon={faHackerrank} />
                   </a>
@@ -138,6 +145,7 @@ function Footer() {
                     href="https://codepen.io/danielphilipjohnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="codepen"
                   >
                     <FontAwesomeIcon icon={faCodepen} />
                   </a>
@@ -147,6 +155,7 @@ function Footer() {
                     href="https://stackoverflow.com/users/13921677/daniel-philip-johnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="stackoverflow"
                   >
                     <FontAwesomeIcon icon={faStackOverflow} />
                   </a>
@@ -156,6 +165,7 @@ function Footer() {
                     href="https://www.freecodecamp.org/daniel-philip-johnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="freecodecamp"
                   >
                     <FontAwesomeIcon icon={faFreeCodeCamp} />
                   </a>
@@ -165,6 +175,7 @@ function Footer() {
                     href="https://github.com/danielphilipjohnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="github"
                   >
                     <FontAwesomeIcon icon={faGithub} />
                   </a>

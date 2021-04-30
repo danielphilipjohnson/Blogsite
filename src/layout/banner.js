@@ -52,6 +52,7 @@ function Banner() {
                     href="https://www.linkedin.com/in/daniel-philip-johnson/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="linkedin"
                   >
                     <FontAwesomeIcon icon={faLinkedin} />
                   </a>
@@ -61,6 +62,7 @@ function Banner() {
                     href="https://twitter.com/danielp_johnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="twitter"
                   >
                     <FontAwesomeIcon icon={faTwitter} />
                   </a>
@@ -70,6 +72,7 @@ function Banner() {
                     href="https://www.instagram.com/danielphilipjohnson/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="instagram"
                   >
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
@@ -79,6 +82,7 @@ function Banner() {
                     href="https://www.youtube.com/c/DanielPhilipJohnson/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="youtube"
                   >
                     <FontAwesomeIcon icon={faYoutube} />
                   </a>
@@ -88,6 +92,7 @@ function Banner() {
                     href="https://github.com/danielphilipjohnson"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="github"
                   >
                     <FontAwesomeIcon icon={faCode} />
                   </a>
@@ -132,7 +137,10 @@ function Banner() {
                 >
                   Get in Touch
                 </a>
-                <Link to="about" className="border border-white-800 px-3 py-2">
+                <Link
+                  to="/about/"
+                  className="border border-white-800 px-3 py-2"
+                >
                   About Me
                 </Link>
               </div>
