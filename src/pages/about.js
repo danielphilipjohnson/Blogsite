@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Layout>
       <Banner />
-      <div className="container">
+      <div className="container pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi 👋 I am Daniel✨ 👨‍💻 I work remote 🏠 in Cornwall
         </h2>
@@ -41,7 +41,7 @@ export default function About() {
           </span>
         </p>
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Biography
+          📔 Biography
         </h2>
 
         <p className="mb-8 text-lg">
@@ -67,7 +67,7 @@ export default function About() {
         <p className="mb-4">FHDSKJFHSDJKF</p> */}
 
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Why React?
+          🚀 Why React?
         </h2>
         <div className="mb-8 text-lg">
           <p className="mb-6">
@@ -89,7 +89,7 @@ export default function About() {
           <p>Finally, it is easy to learn.</p>
         </div>
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Why Did I Start This Blog?
+          📚 Why Did I Start This Blog?
         </h2>
         <div className="mb-8 text-lg">
           <p className="mb-6">
@@ -125,7 +125,7 @@ export default function About() {
         </div>
 
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Thank You
+          🙏 Thank You
         </h2>
         <div className="text-lg">
           <p className="mb-6">
