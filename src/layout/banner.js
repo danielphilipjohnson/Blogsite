@@ -8,7 +8,11 @@ import {
   faYoutube,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+
 import showcase from "../images/showcase.jpg";
+
+import profileImg from "../images/profile.png";
+
 function Banner() {
   const styleObj = {
     backgroundColor: "rgba(48,49,70,.64)",
@@ -29,7 +33,7 @@ function Banner() {
           <figure className="md:w-1/3">
             <img
               className="w-36 md:w-56 lg:w-64 object-contain rounded-full mb-4 md:mr-7 bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800 p-2"
-              src="https://www.danielphilipjohnson.com/static/profile-90ff2d9e23d36ceb0d775bc4d2fb48f5.jpg"
+              src={profileImg}
               alt=""
               height="300"
             />
