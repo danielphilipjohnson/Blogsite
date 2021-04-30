@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+
 import Layout from "../components/layout";
 
 import Blogs from "../components/blogs";
@@ -79,9 +80,13 @@ export const blogListQuery = graphql`
           frontmatter {
             id
             title
-            cover
             date
             category
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 800)
+              }
+            }
           }
         }
       }

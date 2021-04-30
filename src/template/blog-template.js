@@ -1,11 +1,16 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./blog-styles.css";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
 
+  const image = getImage(post.frontmatter.cover);
+  console.log(image);
+  // let bannerImgFluid = post.frontmatter.cover.childImageSharp.fluid;
+  // console.log(node.frontmatter.banner.childImageSharp.fluid});
   const { previous, next } = pageContext;
   const cupsOfCoffee = (post) => {
     let amountOfCoffees = "";
@@ -47,9 +52,9 @@ export default function Template({ data, pageContext }) {
         </header>
         <figure className="mb-4">
           <a href="https://github.com/danielphilipjohnson">
-            <img
-              className="w-full shadow-lg object-cover rounded-lg"
-              src={post.frontmatter.cover}
+            <GatsbyImage
+              class="w-full shadow-lg object-cover rounded-lg"
+              image={image}
               alt="blog cover"
             />
           </a>
@@ -107,9 +112,13 @@ export const query = graphql`
         date
         id
         title
-        cover
         imageCredit
         category
+        cover {
+          childImageSharp {
+            gatsbyImageData(width: 1200, quality: 90)
+          }
+        }
       }
     }
   }

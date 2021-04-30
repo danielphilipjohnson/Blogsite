@@ -10,25 +10,18 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { StaticImage } from "gatsby-plugin-image";
+import "./banner.css";
 
 function Banner() {
-  const styleObj = {
-    backgroundColor: "rgba(48,49,70,.64)",
-    position: "absolute!important",
-    height: "600px",
-    filter: "brightness(.3)",
-    width: "100%",
-  };
   return (
     <header className="w-full py-10 md:py-20 mb-4">
       <StaticImage
-        className="w-full absolute object-cover inset-0 flex flex-col items-start"
+        className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
         src="../images/showcase.jpg"
         alt="showcase"
         placeholder="blurred"
         layout="fixed"
         height={600}
-        style={styleObj}
       />
 
       <div className="container">
