@@ -8,12 +8,13 @@ import {
   faYoutube,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import showcase from "../images/showcase.jpg";
 function Banner() {
   const styleObj = {
     backgroundColor: "rgba(48,49,70,.64)",
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${"https://www.danielphilipjohnson.com/static/showcase1-c58cf64918185dd34948a4d0d8860f05.jpg"})`,
+    backgroundImage: `url(${showcase})`,
     backgroundOrigin: "padding-box",
     backgroundClip: "border-box",
     backgroundBlendMode: "multiply",
