@@ -14,14 +14,14 @@ import "./banner.css";
 
 function Banner() {
   return (
-    <header className="w-full py-5 md:py-20 mb-4">
+    <header className="w-full pt-5 md:py-20 md:mb-4">
       <StaticImage
         className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
-        src="../images/showcase.jpg"
+        src="../../images/showcase.jpg"
         alt="showcase"
         placeholder="blurred"
         layout="fixed"
-        height={600}
+        height={590}
       />
 
       <div className="container">
@@ -32,7 +32,7 @@ function Banner() {
           <figure className="rounded-full bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
             <StaticImage
               className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
-              src="../images/profile.png"
+              src="../../images/profile.png"
               alt="profile of daniel philip johnson"
               placeholder="blurred"
               layout="fixed"

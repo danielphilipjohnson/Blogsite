@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/layout";
-import Banner from "../layout/banner";
+import Banner from "../components/banner";
 
 export default function About() {
   return (
     <Layout>
       <Banner />
-      <div className="container md:pt-28">
+      <div className="container pt-20 md:pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
           <span role="img" aria-label="hello">
