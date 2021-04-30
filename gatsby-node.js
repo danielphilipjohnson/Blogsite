@@ -88,6 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
+
     // 3.c create pages for each individual page
     categoryBlogs.forEach((post, index) => {
       const previous =

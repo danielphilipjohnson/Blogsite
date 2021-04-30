@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "gatsby";
-
+import categoryReflect from "../../images/category/reflection.webp";
 function Categories({ categories }) {
+  const getCategoryCard = (category) => {
+    if (category === "js") {
+      return (
+        <img
+          class="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          src={categoryReflect}
+          lazy="loaded"
+          style={{ height: "350px", width: "800px" }}
+        />
+      );
+    }
+  };
+  console.log(getCategoryCard());
+
   return (
     <div className="container">
       <div className="text-center font-bold  text-2xl mb-2">
@@ -15,12 +29,7 @@ function Categories({ categories }) {
             <div className="w-full md:w-1/2  mb-6 md:mb-10 md:pr-6">
               <div className="group relative">
                 <figure className=" rounded-lg">
-                  <img
-                    class="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
-                    src="https://source.unsplash.com/1600x900/?nature"
-                    lazy="loaded"
-                    style={{ height: "350px", width: "800px" }}
-                  />
+                  {getCategoryCard(category)}
                 </figure>
                 <Link
                   to={`/${category}/`}

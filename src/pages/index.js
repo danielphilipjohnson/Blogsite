@@ -12,7 +12,7 @@ export default function Home({ data }) {
       <Layout>
         <Banner />
         <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
-        <Categories categories={data.categories.distinct} />
+        <Categories categories={data.categories.distinct} data={data} />
       </Layout>
     </>
   );

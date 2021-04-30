@@ -13,8 +13,9 @@ function Categories({ data }) {
 }
 
 export default Categories;
+
 export const query = graphql`
-  query {
+  query categoryQuery {
     categories: allMarkdownRemark {
       distinct(field: frontmatter___category)
     }
