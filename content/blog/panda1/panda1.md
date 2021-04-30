@@ -1,6 +1,10 @@
 ---
 title: "Sweet Pandas Eating Sweets"
+description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
 date: "2017-08-10"
+datePublished: "2017-08-10"
+keywords: "Best Tweets, reflection, may 2021"
+
 category: "junior"
 cover: "../../image/reflection/may2021-reflection-cover.webp"
 ---

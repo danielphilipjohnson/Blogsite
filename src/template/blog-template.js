@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import SEO from "../components/SEO";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./blog-styles.css";
 
@@ -33,6 +34,19 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
+      <SEO
+        postData={post}
+        pageData={pageContext}
+        metaImage={
+          post.frontmatter.cover.childImageSharp.gatsbyImageData.images.fallback
+            .src
+        }
+        isBlogPost={true}
+        frontmatter={post.frontmatter}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        datePublished={post.frontmatter.datePublished}
+      />
       <article className="container py-4">
         <span
           className="bg-gradient-to-r from-blue-700 to-green-800 
@@ -111,10 +125,13 @@ export const query = graphql`
       html
       frontmatter {
         date
+        datePublished
         id
         title
         imageCredit
         category
+        description
+        keywords
         cover {
           childImageSharp {
             gatsbyImageData(width: 1200, quality: 90)

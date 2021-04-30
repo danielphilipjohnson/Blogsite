@@ -1,13 +1,32 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+const config = require("./config/website");
 
 module.exports = {
-  /* Your site config here */
   siteMetadata: {
     siteUrl: `http://danielphilipjohnson.me/`,
+    title: config.siteTitle,
+    twitterHandle: config.twitterHandle,
+    description: config.siteDescription,
+    keywords: config.keywords,
+    canonicalUrl: config.siteUrl,
+    image: config.siteLogo,
+    author: {
+      name: config.author,
+      minibio: config.minibio,
+    },
+    organization: {
+      name: config.organization,
+      url: config.siteUrl,
+      logo: config.siteLogo,
+    },
+    social: {
+      twitterHandle: config.twitterHandle,
+      twitter: config.twitter,
+      fbAppID: "",
+      github: config.github,
+      linkedin: config.linkedin,
+      youtube: config.youtube,
+    },
+    image: config.image,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -49,16 +68,8 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
-    // SEO
     `gatsby-plugin-advanced-sitemap`,
     "gatsby-plugin-robots-txt",
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/image`,
-    //   },
-    // },
-
     `gatsby-plugin-postcss`,
     `gatsby-plugin-fontawesome-css`,
   ],
