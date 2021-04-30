@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 function Blogs({ blogs, title }) {
   return (
-    <div className="container">
+    <div className="md:py-28 container">
       <div className="text-center font-bold  text-2xl mb-2">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
           <h2 className="text-5xl capitalize">{title}</h2>

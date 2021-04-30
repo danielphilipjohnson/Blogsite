@@ -11,28 +11,32 @@ import {
 
 import { StaticImage } from "gatsby-plugin-image";
 
-import showcase from "../images/showcase.jpg";
-
-import profileImg from "../images/profile.png";
-
 function Banner() {
   const styleObj = {
     backgroundColor: "rgba(48,49,70,.64)",
-    backgroundPosition: "center center",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${showcase})`,
-    backgroundOrigin: "padding-box",
-    backgroundClip: "border-box",
-    backgroundBlendMode: "multiply",
+    position: "absolute!important",
+    height: "600px",
+    filter: "brightness(.3)",
+    width: "100%",
   };
   return (
-    <header className="w-full py-20 mb-4" style={styleObj}>
+    <header className="w-full py-10 md:py-20 mb-4">
+      <StaticImage
+        className="w-full absolute object-cover inset-0 flex flex-col items-start"
+        src="../images/showcase.jpg"
+        alt="showcase"
+        placeholder="blurred"
+        layout="fixed"
+        height={600}
+        style={styleObj}
+      />
+
       <div className="container">
         <div
           className="w-full flex flex-col md:flex-row 
-          items-center justify-items-center text-white"
+          items-center justify-items-center text-white group relative"
         >
-          <figure className=" rounded-full  bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
+          <figure className="rounded-full bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
             <StaticImage
               className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
               src="../images/profile.png"
