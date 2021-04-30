@@ -14,7 +14,6 @@ function Categories({ categories }) {
       );
     }
   };
-  console.log(getCategoryCard());
 
   return (
     <div className="container">
