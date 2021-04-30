@@ -14,6 +14,12 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+      },
+    },
 
     {
       resolve: `gatsby-transformer-remark`,
