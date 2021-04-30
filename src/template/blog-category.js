@@ -32,7 +32,7 @@ export default function BlogCategory({ data, pageContext }) {
 
   return (
     <Layout>
-      <section className="blog-list">
+      <section className="container pt-10">
         <Blogs
           blogs={data.allMarkdownRemark.edges}
           title={pageContext.category}

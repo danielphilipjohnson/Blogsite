@@ -11,7 +11,9 @@ export default function Home({ data }) {
     <>
       <Layout>
         <Banner />
-        <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
+        <div className="md:pt-28 container">
+          <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
+        </div>
         <Categories categories={data.categories.distinct} data={data} />
       </Layout>
     </>
