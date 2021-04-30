@@ -8,7 +8,22 @@ export default function About() {
       <Banner />
       <div className="container pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Hi 👋 I am Daniel✨ 👨‍💻 I work remote 🏠 in Cornwall
+          Hi{" "}
+          <span role="img" aria-labelledby="hello">
+            👋{" "}
+          </span>
+          I am Daniel
+          <span role="img" aria-labelledby="sparkles">
+            ✨
+          </span>{" "}
+          <span role="img" aria-labelledby="I use my laptop and">
+            👨‍💻
+          </span>{" "}
+          I work remote{" "}
+          <span role="img" aria-labelledby="in my house">
+            🏠
+          </span>{" "}
+          in Cornwall
         </h2>
 
         <p class="mb-4 text-lg leading-relaxed border-l-4 border-indigo-500 px-4">
@@ -24,24 +39,27 @@ export default function About() {
         <p className="mb-4">
           Current Focus:
           <span>
-            <span> // </span>
+            <span> &sol;&sol; </span>
             <span className="text-indigo-900"> Accessibility </span>
           </span>
           <span>
-            <span> // </span>
+            <span> &sol;&sol; </span>
             <span className="text-indigo-900"> React </span>
           </span>
           <span>
-            <span> // </span>
+            <span> &sol;&sol; </span>
             <span className="text-indigo-900"> Performance </span>
           </span>
           <span>
-            <span> // </span>
+            <span> &sol;&sol; </span>
             <span className="text-indigo-900"> Responsive</span>
           </span>
         </p>
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          📔 Biography
+          <span role="img" aria-labelledby="A little story about my">
+            📔{" "}
+          </span>{" "}
+          Biography
         </h2>
 
         <p className="mb-8 text-lg">
@@ -60,14 +78,12 @@ export default function About() {
           and late moving to react.
         </p>
 
-        {/* <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          Experience
-        </h2>
-        look to cv
-        <p className="mb-4">FHDSKJFHSDJKF</p> */}
-
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          🚀 Why React?
+          <span role="img" aria-labelledby="rocket rocket">
+            {" "}
+            🚀{" "}
+          </span>
+          Why React?
         </h2>
         <div className="mb-8 text-lg">
           <p className="mb-6">
@@ -89,7 +105,10 @@ export default function About() {
           <p>Finally, it is easy to learn.</p>
         </div>
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          📚 Why Did I Start This Blog?
+          <span role="img" aria-labelledby="book">
+            📚
+          </span>{" "}
+          Why Did I Start This Blog?
         </h2>
         <div className="mb-8 text-lg">
           <p className="mb-6">
@@ -125,7 +144,10 @@ export default function About() {
         </div>
 
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
-          🙏 Thank You
+          <span role="img" aria-labelledby="Goodbye and ">
+            🙏
+          </span>{" "}
+          Thank You
         </h2>
         <div className="text-lg">
           <p className="mb-6">

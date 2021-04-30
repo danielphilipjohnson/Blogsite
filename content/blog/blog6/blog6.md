@@ -1,9 +1,9 @@
 ---
-id: "5"
-category: "reflection"
-title: "Learn React in 24 Hours"
-date: "2021-07-01"
-cover: "https://source.unsplash.com/1000x400/?nature,water"
+id: "6"
+category: "blog"
+title: "10 Tips for Making a Good Fullstack Developer Even Better "
+date: "2021-01-01"
+cover: "../../image/reflection/may2021-reflection-cover.webp"
 imageCredit: "unsplash"
 ---
 

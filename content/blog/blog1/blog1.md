@@ -4,8 +4,7 @@ category: "js"
 title: "20 Best Tweets of All Time About Js "
 date: "2020-12-01"
 cover: "../../image/reflection/may2021-reflection-cover.webp"
-# cover: "https://source.unsplash.com/1000x400/?nature,water"
-# featuredImage: pupperino.png
+
 imageCredit: "unsplash"
 ---
 

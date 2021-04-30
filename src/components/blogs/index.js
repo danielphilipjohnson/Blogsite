@@ -26,6 +26,7 @@ function Blogs({ blogs, title }) {
                     image={image}
                     height={350}
                     width={800}
+                    alt={"blog " + node.frontmatter.title}
                   />
                 </figure>
                 <Link

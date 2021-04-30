@@ -120,14 +120,6 @@ function Banner() {
                     #SASS{" "}
                   </span>
                 </p>
-
-                {/* <p>📍 Cornwall</p>
-              <p>🏴󠁧󠁢󠁥󠁮󠁧󠁿 👨‍⚕️ Psychologist turned FrontEndEnginer</p> */}
-                {/* <p> 💻 👨‍🎓 BSc | University of Plymouth 🏫 💼 </p>
-                <p>Lang | 🇬🇧 🇪🇸</p> */}
-                {/* <a href="https://www.danielphilipjohnson.com/">
-                https://www.danielphilipjohnson.com/
-              </a> */}
               </div>
             </div>
             <div className="mb-2 md:flex flex-col text-center md:text-left">

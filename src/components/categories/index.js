@@ -6,10 +6,51 @@ function Categories({ categories }) {
     if (category === "js") {
       return (
         <img
-          class="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          src={categoryReflect}
+          lazy="loaded"
+          alt={category + " card"}
+          style={{ height: "350px", width: "800px" }}
+        />
+      );
+    } else if (category === "reflection") {
+      return (
+        <img
+          className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
           src={categoryReflect}
           lazy="loaded"
           style={{ height: "350px", width: "800px" }}
+          alt={category + " card"}
+        />
+      );
+    } else if (category === "junior") {
+      return (
+        <img
+          className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          src={categoryReflect}
+          lazy="loaded"
+          style={{ height: "350px", width: "800px" }}
+          alt={category + " card"}
+        />
+      );
+    } else if (category === "animal") {
+      return (
+        <img
+          className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          src={categoryReflect}
+          lazy="loaded"
+          style={{ height: "350px", width: "800px" }}
+          alt={category + " card"}
+        />
+      );
+    } else if (category === "blog") {
+      return (
+        <img
+          className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+          src={categoryReflect}
+          lazy="loaded"
+          style={{ height: "350px", width: "800px" }}
+          alt={category + " card"}
         />
       );
     }
@@ -25,7 +66,10 @@ function Categories({ categories }) {
       <ul className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
         {categories.map((category) => {
           return (
-            <div className="w-full md:w-1/2  mb-6 md:mb-10 md:pr-6">
+            <div
+              className="w-full md:w-1/2  mb-6 md:mb-10 md:pr-6"
+              key={category}
+            >
               <div className="group relative">
                 <figure className=" rounded-lg">
                   {getCategoryCard(category)}

@@ -8,10 +8,9 @@ export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
 
   const image = getImage(post.frontmatter.cover);
-  console.log(image);
-  // let bannerImgFluid = post.frontmatter.cover.childImageSharp.fluid;
-  // console.log(node.frontmatter.banner.childImageSharp.fluid});
+
   const { previous, next } = pageContext;
+
   const cupsOfCoffee = (post) => {
     let amountOfCoffees = "";
     for (let i = 0; i < post.timeToRead; i++) {
@@ -19,11 +18,13 @@ export default function Template({ data, pageContext }) {
     }
     return amountOfCoffees;
   };
+
   const previousLink = () => {
     if (previous) {
       return previous.fields.slug;
     }
   };
+
   const nextLink = () => {
     if (next) {
       return next.fields.slug;

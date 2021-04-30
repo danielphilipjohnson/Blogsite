@@ -3,7 +3,7 @@ id: "5"
 category: "blog"
 title: "Learn React in 24 Hours"
 date: "2021-07-01"
-cover: "https://source.unsplash.com/1000x400/?nature,water"
+cover: "../../image/reflection/may2021-reflection-cover.webp"
 imageCredit: "unsplash"
 ---
 

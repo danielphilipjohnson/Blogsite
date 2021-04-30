@@ -1,9 +1,9 @@
 ---
-id: "2"
+id: "3"
 category: "reflection"
-title: "25 Surprising Facts About Fullstack Developer"
-date: "2021-08-01"
-cover: "https://source.unsplash.com/1000x400/?nature,water"
+title: "7 Answers to the Most Frequently Asked Questions About Js"
+date: "2021-03-01"
+cover: "../../image/reflection/may2021-reflection-cover.webp"
 imageCredit: "unsplash"
 ---
 
