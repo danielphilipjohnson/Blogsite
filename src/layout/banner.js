@@ -14,7 +14,7 @@ import "./banner.css";
 
 function Banner() {
   return (
-    <header className="w-full py-10 md:py-20 mb-4">
+    <header className="w-full py-5 md:py-20 mb-4">
       <StaticImage
         className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
         src="../images/showcase.jpg"

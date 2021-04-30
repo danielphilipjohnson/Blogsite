@@ -22,7 +22,7 @@ function Blogs({ blogs, title }) {
                   }}
                 >
                   <GatsbyImage
-                    class="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
+                    className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
                     image={image}
                     height={350}
                     width={800}
@@ -36,7 +36,6 @@ function Blogs({ blogs, title }) {
                   <header className="w-full">
                     <p className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-xs rounded">
                       {node.frontmatter.category}{" "}
-                      {/* <span>— {node.frontmatter.date}</span> */}
                     </p>
                     <h2 className="w-blog-title max-w-full pt-4 font-bold text-2xl md:text-3xl leading-snug text-white">
                       {node.frontmatter.title}

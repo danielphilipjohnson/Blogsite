@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Layout>
       <Banner />
-      <div className="container pt-28">
+      <div className="container md:pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
           <span role="img" aria-label="hello">
@@ -39,19 +39,19 @@ export default function About() {
         <p className="mb-4">
           Current Focus:
           <span>
-            <span> &sol;&sol; </span>
+            <span> &#47;&#47; </span>
             <span className="text-indigo-900"> Accessibility </span>
           </span>
           <span>
-            <span> &sol;&sol; </span>
+            <span> &#47;&#47; </span>
             <span className="text-indigo-900"> React </span>
           </span>
           <span>
-            <span> &sol;&sol; </span>
+            <span> &#47;&#47; </span>
             <span className="text-indigo-900"> Performance </span>
           </span>
           <span>
-            <span> &sol;&sol; </span>
+            <span> &#47;&#47; </span>
             <span className="text-indigo-900"> Responsive</span>
           </span>
         </p>
