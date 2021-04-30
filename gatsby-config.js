@@ -49,7 +49,9 @@ module.exports = {
         path: `${__dirname}/src/images/`,
       },
     },
+    // SEO
     `gatsby-plugin-advanced-sitemap`,
+    "gatsby-plugin-robots-txt",
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
