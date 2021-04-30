@@ -1,36 +1,22 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import Header from "../components/header";
+import { graphql } from "gatsby";
+
+import Layout from "../components/layout";
+import Blogs from "../components/blogs";
+import Categories from "../components/categories";
+import Banner from "../components/banner";
 
 export default function Home({ data }) {
-  // get links of category
-  const categoryNav = () => {
-    return data.categories.distinct.map((category) => {
-      return (
-        <Link to={`/${category}/`}>
-          <li>{category}</li>
-        </Link>
-      );
-    });
-  };
-
   return (
-    <div>
-      <h1>Amazing Pandas Eating Things</h1>
-      <h4>{data.blogs.totalCount} Posts</h4>
-
-      <ul>{categoryNav()}</ul>
-      {data.blogs.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link to={node.fields.slug}>
-            <h3>
-              {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-            </h3>
-            <p>{node.excerpt}</p>
-          </Link>
+    <>
+      <Layout>
+        <Banner />
+        <div className="pt-8 md:pt-28 container">
+          <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
         </div>
-      ))}
-    </div>
+        <Categories categories={data.categories.distinct} data={data} />
+      </Layout>
+    </>
   );
 }
 
@@ -38,6 +24,7 @@ export const query = graphql`
   query {
     blogs: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      limit: 2
     ) {
       totalCount
       edges {
@@ -49,6 +36,12 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            category
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 800)
+              }
+            }
           }
 
           excerpt

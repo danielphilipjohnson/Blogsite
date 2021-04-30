@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `/${node.frontmatter.category}${slug}`,
+      value: `${slug}`,
     });
   }
 };
@@ -88,6 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
+
     // 3.c create pages for each individual page
     categoryBlogs.forEach((post, index) => {
       const previous =

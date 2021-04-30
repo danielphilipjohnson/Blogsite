@@ -1,9 +1,16 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Layout from "../components/layout";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import "./blog-styles.css";
 
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
+
+  const image = getImage(post.frontmatter.cover);
+
   const { previous, next } = pageContext;
+
   const cupsOfCoffee = (post) => {
     let amountOfCoffees = "";
     for (let i = 0; i < post.timeToRead; i++) {
@@ -11,71 +18,87 @@ export default function Template({ data, pageContext }) {
     }
     return amountOfCoffees;
   };
+
   const previousLink = () => {
     if (previous) {
       return previous.fields.slug;
     }
   };
+
   const nextLink = () => {
     if (next) {
       return next.fields.slug;
     }
   };
 
-  console.log(pageContext);
   return (
-    <article className="blog-post">
-      <header className="blog-post-header">
-        <h2 className="title">{post.title}</h2>
-        <div className="meta">
-          <span className="date">{post.frontmatter.date}</span>
-          <span className="time">{cupsOfCoffee(post)} min read </span>
-        </div>
-      </header>
-
-      <div className="blog-post-body">
-        <figure className="blog-banner">
+    <Layout>
+      <article className="container py-4">
+        <span
+          className="bg-gradient-to-r from-blue-700 to-green-800 
+        w-max font-medium text-white block uppercase 
+        py-4 px-2 md:text-4xl rounded mb-4"
+        >
+          {post.frontmatter.category}
+        </span>
+        <header className="mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight md:leading-snug">
+            {post.frontmatter.title}
+          </h1>
+          <p>Created by Daniel Philip Johnson</p>
+          <div className="meta">
+            <p className="date mt-2">Last updated on {post.frontmatter.date}</p>
+            <p className="time mt-2">{cupsOfCoffee(post)} min read </p>
+          </div>
+        </header>
+        <figure className="mb-4">
           <a href="https://github.com/danielphilipjohnson">
-            <img
-              className="img-fluid"
-              src={post.frontmatter.cover}
+            <GatsbyImage
+              class="w-full shadow-lg object-cover rounded-lg"
+              image={image}
               alt="blog cover"
             />
           </a>
           <figcaption className="mt-2 text-center image-caption">
-            Image Credit:
-            <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
-              {post.frontmatter.imageCredit}
-            </a>
+            <p className="pt-3">
+              <span className="mr-2">Image Credit:</span>
+              <a
+                className="font-bold"
+                href="https://unsplash.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {post.frontmatter.imageCredit}
+              </a>
+            </p>
           </figcaption>
         </figure>
         <div
-          className="container"
+          className="custom-blog"
           dangerouslySetInnerHTML={{ __html: post.html }}
         ></div>
-      </div>
-      <nav className="blog-nav nav nav-justified my-5">
-        {pageContext.previous && (
-          <Link
-            to={previousLink()}
-            activeClassName="active"
-            className="nav-link-prev nav-item nav-link rounded-left"
-          >
-            Previous
-            <i className="arrow-prev fas fa-long-arrow-alt-left"></i>
-          </Link>
-        )}
+        <nav className="my-8">
+          {pageContext.previous && (
+            <Link
+              to={previousLink()}
+              activeClassName="active"
+              className="border border-white-800 px-3 py-2 mr-2"
+            >
+              Previous
+            </Link>
+          )}
 
-        {pageContext.next && (
-          <Link
-            className="nav-link-next nav-item nav-link rounded-right"
-            to={nextLink()}
-          >
-            Next<i className="arrow-next fas fa-long-arrow-alt-right"></i>
-          </Link>
-        )}
-      </nav>
-    </article>
+          {pageContext.next && (
+            <Link
+              className="border border-white-800 px-3 py-2 mr-2"
+              to={nextLink()}
+            >
+              Next
+            </Link>
+          )}
+        </nav>
+      </article>
+    </Layout>
   );
 }
 
@@ -90,8 +113,13 @@ export const query = graphql`
         date
         id
         title
-        cover
         imageCredit
+        category
+        cover {
+          childImageSharp {
+            gatsbyImageData(width: 1200, quality: 90)
+          }
+        }
       }
     }
   }
