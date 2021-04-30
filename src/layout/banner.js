@@ -9,6 +9,8 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
+import { StaticImage } from "gatsby-plugin-image";
+
 import showcase from "../images/showcase.jpg";
 
 import profileImg from "../images/profile.png";
@@ -30,12 +32,15 @@ function Banner() {
           className="w-full flex flex-col md:flex-row 
           items-center justify-items-center text-white"
         >
-          <figure className="md:w-1/3">
-            <img
-              className="w-36 md:w-56 lg:w-64 object-contain rounded-full mb-4 md:mr-7 bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800 p-2"
-              src={profileImg}
-              alt=""
-              height="300"
+          <figure className=" rounded-full  bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
+            <StaticImage
+              className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
+              src="../images/profile.png"
+              alt="profile of daniel philip johnson"
+              placeholder="blurred"
+              layout="fixed"
+              width={200}
+              height={200}
             />
           </figure>
 
