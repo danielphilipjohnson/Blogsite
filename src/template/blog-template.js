@@ -35,7 +35,6 @@ export default function Template({ data, pageContext }) {
   return (
     <Layout>
       <Seo
-        postData={post}
         pageData={pageContext}
         metaImage={
           post.frontmatter.cover.childImageSharp.gatsbyImageData.images.fallback

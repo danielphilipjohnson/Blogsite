@@ -8,7 +8,6 @@ import defaultMetaImage from "../../../static/metaImage.png";
 
 function Seo({
   siteMetadata: seo,
-  postData = postData || {},
   pageData = {},
   metaImage,
   isBlogPost,
@@ -22,7 +21,11 @@ function Seo({
 }) {
   return (
     <>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{
+          lang: "en",
+        }}
+      >
         {/* General tags */}
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -35,7 +38,6 @@ function Seo({
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="fb:app_id" content={seo.social.fbAppID} />
-
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={seo.social.twitterHandle} />

@@ -18,7 +18,7 @@ export default function About() {
         description={description}
       />
       <Banner />
-      <div className="container pt-20 md:pt-28">
+      <div className="container pt-20 md:pt-20">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
           <span role="img" aria-label="hello">
