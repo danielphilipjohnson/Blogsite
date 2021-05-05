@@ -1,10 +1,22 @@
 import React from "react";
+
 import Layout from "../components/layout";
+import SEO from "../components/SEO";
+
 import Banner from "../components/banner";
 
 export default function About() {
+  const description = `I am a Front-End Engineer with more than 2+ years experience building responsive and accessible web-applications and 6 months experience in the startup world working remotely withcodecareer.io. I am looking to expand my skills with the right front-end react developer position.`;
+
   return (
     <Layout>
+      <SEO
+        keywords={
+          "About  Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
+        }
+        title={"About Daniel Philip Johnson"}
+        description={description}
+      />
       <Banner />
       <div className="container pt-20 md:pt-28">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
