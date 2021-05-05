@@ -146,6 +146,7 @@ module.exports = {
         precachePages: [`/about/`, `/`],
       },
     },
+    `gatsby-plugin-preload-fonts`,
     "gatsby-plugin-webpack-bundle-analyzer",
     {
       resolve: `gatsby-source-filesystem`,
