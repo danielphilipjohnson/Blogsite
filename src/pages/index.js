@@ -13,7 +13,7 @@ export default function Home({ data }) {
       <Layout>
         <Seo />
         <Banner />
-        <div className="pt-9 md:pt-12 container">
+        <div className="pt-2 md:pt-8 container">
           <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
         </div>
         <Categories categories={data.categories.distinct} data={data} />
