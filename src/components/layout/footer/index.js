@@ -18,22 +18,18 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-r from-blue-700 to-purple-800 text-white  w-full">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between  py-10 md:pt-16">
+        <div className="flex flex-col md:flex-row justify-between py-10 md:pt-16">
           <div className="md:w-1/3 order-last md:order-first">
             <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
               Internal links
             </h3>
-            <nav className="">
+            <nav>
               <ul>
                 <li className="my-2">
-                  <Link to={`/blog/`} className="">
-                    Blog
-                  </Link>
+                  <Link to={`/blogs/`}>Blog</Link>
                 </li>
                 <li className="my-2">
-                  <Link to={`/categories/`} className="">
-                    Blog Categories
-                  </Link>
+                  <Link to={`/categories/`}>Blog Categories</Link>
                 </li>
                 <li className="my-2">
                   <a href="https://www.danielphilipjohnson.com/work/">
@@ -46,9 +42,13 @@ function Footer() {
                   </a>
                 </li>
                 <li className="my-2">
-                  <Link to={`/about/`} className="">
-                    About Me
-                  </Link>
+                  <Link to={`/about/`}>About Me</Link>
+                </li>
+                <li className="my-2">
+                  <Link to={`/archives/`}>Archives</Link>
+                </li>
+                <li className="my-2">
+                  <Link to={`/sitemap-pages.xml`}>Sitemap</Link>
                 </li>
               </ul>
             </nav>
