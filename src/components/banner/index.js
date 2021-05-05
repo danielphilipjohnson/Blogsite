@@ -15,7 +15,12 @@ import "./banner.css";
 
 function Banner() {
   return (
-    <header className="w-full pt-5 md:py-20 md:mb-4">
+    <header
+      className="w-full pt-5 md:py-20 md:mb-4"
+      style={{
+        height: "500px",
+      }}
+    >
       <StaticImage
         className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
         src="../../images/showcase.jpg"

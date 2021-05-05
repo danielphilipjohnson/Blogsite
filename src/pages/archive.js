@@ -2,21 +2,30 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import Blogs from "../components/blogs";
-import Categories from "../components/categories";
-import Banner from "../components/banner";
+import ArchiveBlogs from "../components/archive-blogs";
 import Seo from "../components/SEO";
 
 export default function Home({ data }) {
+  const description = `Blog archives of all my blogs ranging from react, career development, reflection and tips on how to improve as a developer`;
+
   return (
     <>
       <Layout>
-        <Seo />
-        <Banner />
-        <div className="pt-2 md:pt-8 container">
-          <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
+        <Seo
+          keywords={
+            "Blog Archive Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
+          }
+          title={"Blog Archives"}
+          description={description}
+        />
+
+        <div className="pt-2 md:pt-8 container pb-12">
+          <ArchiveBlogs
+            blogs={data.blogs.edges}
+            count={data.blogs.totalCount}
+            title={"Blogs from Daniel — Archive"}
+          />
         </div>
-        <Categories categories={data.categories.distinct} data={data} />
       </Layout>
     </>
   );
@@ -26,7 +35,6 @@ export const query = graphql`
   query {
     blogs: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 2
     ) {
       totalCount
       edges {
