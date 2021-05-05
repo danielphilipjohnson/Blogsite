@@ -13,7 +13,7 @@ function Blogs({ blogs, title }) {
         {blogs.map(({ node }) => {
           const image = getImage(node.frontmatter.cover);
           return (
-            <div className="w-full md:w-1/2 md:pr-6 mb-4 md:mb-0" key={node.id}>
+            <div className="w-full md:w-1/2 md:pr-6 mb-4 md:mb-4" key={node.id}>
               <div className="group relative">
                 <figure
                   className=" rounded-lg"

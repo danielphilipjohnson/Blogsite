@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
           : categoryBlogs[index + 1].node;
 
       const next = index === 0 ? null : categoryBlogs[index - 1].node;
-      console.log(post.node.fields.slug);
+
       createPage({
         path: post.node.fields.slug,
         component: path.resolve(`./src/template/blog-template.js`),
@@ -107,6 +107,31 @@ exports.createPages = async ({ graphql, actions }) => {
           next,
         },
       });
+    });
+  });
+
+  //4 generate all blogs
+
+  const allBlogPosts = result.data.allMarkdownRemark.edges;
+
+  const postsPerPage = 4;
+
+  const numPages = Math.ceil(allBlogPosts.length / postsPerPage);
+
+  console.log(numPages);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blogs/` : `/blogs/${i + 1}`,
+
+      component: path.resolve(`./src/template/blogs.js`),
+
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
     });
   });
 };
