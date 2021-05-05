@@ -6,7 +6,7 @@ import SchemaOrg from "./schema-org";
 import config from "../../../config/website";
 import defaultMetaImage from "../../../static/metaImage.png";
 
-function SEO({
+function Seo({
   siteMetadata: seo,
   postData = postData || {},
   pageData = {},
@@ -20,7 +20,6 @@ function SEO({
   url = `${seo.canonicalUrl}${pageData.slug || ""}`,
   datePublished = isBlogPost ? frontmatter.datePublished : false,
 }) {
-  console.log(frontmatter.keywords);
   return (
     <>
       <Helmet>
@@ -89,7 +88,7 @@ function SEOWithQuery(props) {
       }
     }
   `);
-  return <SEO siteMetadata={siteMetadata} {...props} />;
+  return <Seo siteMetadata={siteMetadata} {...props} />;
 }
 
 SEOWithQuery.propTypes = {

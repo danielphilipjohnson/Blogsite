@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 
 import Banner from "../components/banner";
 
@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         keywords={
           "About  Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
         }

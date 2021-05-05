@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./blog-styles.css";
 
@@ -34,7 +34,7 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         postData={post}
         pageData={pageContext}
         metaImage={

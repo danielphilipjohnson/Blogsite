@@ -5,13 +5,13 @@ import Layout from "../components/layout";
 import Blogs from "../components/blogs";
 import Categories from "../components/categories";
 import Banner from "../components/banner";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 
 export default function Home({ data }) {
   return (
     <>
       <Layout>
-        <SEO />
+        <Seo />
         <Banner />
         <div className="pt-8 md:pt-28 container">
           <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
