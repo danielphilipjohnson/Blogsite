@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
           : categoryBlogs[index + 1].node;
 
       const next = index === 0 ? null : categoryBlogs[index - 1].node;
-
+      console.log(post.node.fields.slug);
       createPage({
         path: post.node.fields.slug,
         component: path.resolve(`./src/template/blog-template.js`),
