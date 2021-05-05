@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-
+import SEO from "../components/SEO";
 import Blogs from "../components/blogs";
 
 export default function BlogCategory({ data, pageContext }) {
@@ -32,6 +32,7 @@ export default function BlogCategory({ data, pageContext }) {
 
   return (
     <Layout>
+      <SEO />
       <section className="container pt-10">
         <Blogs
           blogs={data.allMarkdownRemark.edges}
