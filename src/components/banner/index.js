@@ -36,8 +36,8 @@ function Banner() {
               alt="profile of daniel philip johnson"
               placeholder="blurred"
               layout="fixed"
-              width={200}
-              height={200}
+              width={165}
+              height={165}
             />
           </figure>
 
@@ -102,15 +102,9 @@ function Banner() {
               <div className="">
                 <p className="md:text-xl mb-4">
                   Former &lt;Front End Engineer /&gt; at CodeCareer.io who
-                  specialied with{" "}
+                  specialises with{" "}
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #React{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Next.js{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Gatsby{" "}
                   </span>
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #Javascript{" "}
@@ -118,12 +112,10 @@ function Banner() {
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #Tailwind{" "}
                   </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Bootstrap4{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #SASS{" "}
-                  </span>
+                </p>
+                <p className="mb-3">
+                  I'm documententing my developers journey as a Front-End
+                  Engineer in pursuit of becoming a senior.
                 </p>
               </div>
             </div>
