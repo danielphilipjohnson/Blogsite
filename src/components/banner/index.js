@@ -44,6 +44,7 @@ function Banner() {
               layout="fixed"
               width={165}
               height={165}
+              formats={["auto","webp"]
             /> */}
           </figure>
 

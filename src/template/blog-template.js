@@ -134,7 +134,12 @@ export const query = graphql`
         keywords
         cover {
           childImageSharp {
-            gatsbyImageData(width: 1200, quality: 90)
+            gatsbyImageData(
+              width: 1200
+              quality: 90
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

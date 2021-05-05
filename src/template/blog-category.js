@@ -85,7 +85,11 @@ export const blogListQuery = graphql`
             category
             cover {
               childImageSharp {
-                gatsbyImageData(width: 800)
+                gatsbyImageData(
+                  width: 800
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
