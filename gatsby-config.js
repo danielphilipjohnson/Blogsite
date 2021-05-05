@@ -147,7 +147,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    "gatsby-plugin-webpack-bundle-analyzer",
+    // "gatsby-plugin-webpack-bundle-analyzer",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
