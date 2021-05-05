@@ -76,7 +76,7 @@ function Categories({ categories }) {
                 </figure>
                 <Link
                   to={`/${category}/`}
-                  className="absolute inset-0 p-6 flex flex-col items-start cursor-pointer hover:cursor-planet focus:cursor-planet transition-cursor duration-300 ease-in-out text-white"
+                  className="absolute inset-0 p-6 flex flex-col items-start cursor-pointer transition-cursor duration-300 ease-in-out text-white"
                 >
                   <header className="w-full">
                     <p className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-4xl rounded">

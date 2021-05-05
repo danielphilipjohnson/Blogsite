@@ -13,7 +13,7 @@ export default function Home({ data }) {
       <Layout>
         <Seo />
         <Banner />
-        <div className="pt-8 md:pt-28 container">
+        <div className="pt-9 md:pt-12 container">
           <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
         </div>
         <Categories categories={data.categories.distinct} data={data} />
@@ -41,7 +41,7 @@ export const query = graphql`
             category
             cover {
               childImageSharp {
-                gatsbyImageData(width: 800)
+                gatsbyImageData(width: 800, height: 500)
               }
             }
           }
