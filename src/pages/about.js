@@ -7,7 +7,6 @@ import Banner from "../components/banner";
 
 export default function About() {
   const description = `I am a Front-End Engineer with more than 2+ years experience building responsive and accessible web-applications and 6 months experience in the startup world working remotely withcodecareer.io. I am looking to expand my skills with the right front-end react developer position.`;
-
   return (
     <Layout>
       <SEO

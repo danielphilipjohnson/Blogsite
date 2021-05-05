@@ -7,7 +7,7 @@ module.exports = {
   pathPrefix: "/",
   siteLogo: "images/logo.png", // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription:
-    "The story of my journey as a Front-End developer, in pursuit of becoming an expert in Javascript and React.js",
+    "Growing monthly blogs geared towards developers, guides & tutorials to level up your career. I also document my developer journey from junior to senior",
   minibio: `
     Former Front End Engineer at CodeCareer.io who specialises with React | Javascript | Tailwind | Bootstrap 4 | SASS.
   `,
