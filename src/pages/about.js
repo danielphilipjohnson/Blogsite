@@ -1,12 +1,24 @@
 import React from "react";
+
 import Layout from "../components/layout";
+import Seo from "../components/SEO";
+
 import Banner from "../components/banner";
 
 export default function About() {
+  const description = `Documententing my developers journey as a Front-End Engineer with more than 2+ years experience. Giving advice on how to further your developers career.`;
+
   return (
     <Layout>
+      <Seo
+        keywords={
+          "About  Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
+        }
+        title={"About Daniel Philip Johnson"}
+        description={description}
+      />
       <Banner />
-      <div className="container pt-20 md:pt-28">
+      <div className="container pt-20 md:pt-20">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
           <span role="img" aria-label="hello">

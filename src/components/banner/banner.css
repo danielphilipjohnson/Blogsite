@@ -1,7 +1,7 @@
 .banner {
   background-color: rgba(48, 49, 70, 0.64);
   position: absolute !important;
-  height: 600px;
+  height: 715px;
   filter: brightness(0.3);
   width: 100% !important;
 }

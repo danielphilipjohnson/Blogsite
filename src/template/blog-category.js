@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-
+import Seo from "../components/SEO";
 import Blogs from "../components/blogs";
 
 export default function BlogCategory({ data, pageContext }) {
@@ -32,6 +32,7 @@ export default function BlogCategory({ data, pageContext }) {
 
   return (
     <Layout>
+      <Seo />
       <section className="container pt-10">
         <Blogs
           blogs={data.allMarkdownRemark.edges}
@@ -84,7 +85,11 @@ export const blogListQuery = graphql`
             category
             cover {
               childImageSharp {
-                gatsbyImageData(width: 800)
+                gatsbyImageData(
+                  width: 800
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, PNG]
+                )
               }
             }
           }

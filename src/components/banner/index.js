@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { StaticImage } from "gatsby-plugin-image";
+import profileImage from "../../images/profile.png";
 import "./banner.css";
 
 function Banner() {
@@ -30,15 +31,21 @@ function Banner() {
           items-center justify-items-center text-white group relative"
         >
           <figure className="rounded-full bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
-            <StaticImage
+            <img
+              className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
+              src={profileImage}
+              alt="profile of daniel philip johnson"
+            />
+            {/* <StaticImage
               className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
               src="../../images/profile.png"
               alt="profile of daniel philip johnson"
               placeholder="blurred"
               layout="fixed"
-              width={200}
-              height={200}
-            />
+              width={165}
+              height={165}
+              formats={["auto","webp"]
+            /> */}
           </figure>
 
           <div className="md:w-2/3">
@@ -102,15 +109,9 @@ function Banner() {
               <div className="">
                 <p className="md:text-xl mb-4">
                   Former &lt;Front End Engineer /&gt; at CodeCareer.io who
-                  specialied with{" "}
+                  specialises with{" "}
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #React{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Next.js{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Gatsby{" "}
                   </span>
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #Javascript{" "}
@@ -118,12 +119,10 @@ function Banner() {
                   <span className="font-bold" style={{ color: "#94c85a" }}>
                     #Tailwind{" "}
                   </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #Bootstrap4{" "}
-                  </span>
-                  <span className="font-bold" style={{ color: "#94c85a" }}>
-                    #SASS{" "}
-                  </span>
+                </p>
+                <p className="mb-3">
+                  I'm documententing my developers journey as a Front-End
+                  Engineer in pursuit of becoming a senior.
                 </p>
               </div>
             </div>
