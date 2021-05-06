@@ -20,9 +20,9 @@ function Footer() {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between py-10 md:pt-16">
           <div className="md:w-1/3 order-last md:order-first">
-            <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
+            <h2 className="uppercase font-bold border-b-2 mb-4 w-36">
               Internal links
-            </h3>
+            </h2>
             <ul>
               <li className="my-2">
                 <Link to={`/blogs/`}>Blogs</Link>
@@ -53,9 +53,9 @@ function Footer() {
             </p>
           </div>
           <div className="md:w-1/3">
-            <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
+            <h2 className="uppercase font-bold border-b-2 mb-4 w-36">
               Social links
-            </h3>
+            </h2>
             <ul className="flex mb-8">
               <li className="mr-4 text-3xl">
                 <a
@@ -112,9 +112,9 @@ function Footer() {
 
           <div className="flex flex-col md:w-1/3 justify-between mb-8">
             <nav>
-              <h3 className="uppercase font-bold border-b-2 mb-4 w-48">
+              <h2 className="uppercase font-bold border-b-2 mb-4 w-48">
                 Developer links
-              </h3>
+              </h2>
               <ul className="flex">
                 <li className="my-2 mr-4 text-3xl">
                   <a

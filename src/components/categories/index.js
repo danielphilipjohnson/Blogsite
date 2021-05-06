@@ -60,7 +60,7 @@ function Categories({ categories }) {
     <div className="container">
       <div className="text-center font-bold  text-2xl mb-2">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
-          <h2 className="text-5xl capitalize">Topics</h2>
+          <h1 className="text-5xl capitalize">Topics</h1>
         </header>
       </div>
       <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">

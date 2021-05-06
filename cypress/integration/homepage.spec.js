@@ -41,15 +41,4 @@ describe("Home page", () => {
     cy.contains("About Me").click();
     cy.url().should("include", "/about/");
   });
-
-  // it("finds first blog and visit", () => {
-  //   cy.wait(500); // wait for rehydration
-  //   cy.get(".blog-link")
-  //     .first()
-  //     .should("have.attr", "href")
-  //     .and("include", "blogs")
-  //     .then((href) => {
-  //       cy.visit(href);
-  //     });
-  // });
 });

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { graphql, Link } from "gatsby";
 export default function pagination({ url, pageContext }) {
   const isPreviousBlogs = () => {
     if (pageContext.currentPage > 1) {
@@ -33,12 +33,12 @@ export default function pagination({ url, pageContext }) {
       <ul className="flex justify-center">
         {isPreviousBlogs() && (
           <li className="border border-black px-4 py-2 mr-2">
-            <a href={PreviousBlogLink()}>Previous</a>
+            <Link to={PreviousBlogLink()}>Previous</Link>
           </li>
         )}
         {isMoreBlogs() && (
           <li className="border border-black px-4 py-2 mr-2">
-            <a href={NextBlogLink()}>Next</a>
+            <Link to={NextBlogLink()}>Next</Link>
           </li>
         )}
       </ul>

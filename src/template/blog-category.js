@@ -4,32 +4,9 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/SEO";
 import Blogs from "../components/blogs";
+import Pagination from "../components/shared/pagination";
 
 export default function BlogCategory({ data, pageContext }) {
-  const isPreviousBlogs = () => {
-    if (pageContext.currentPage > 1) {
-      return true;
-    }
-  };
-
-  const PreviousBlogLink = () => {
-    if (pageContext.currentPage <= 2) {
-      return `/${pageContext.category}/`;
-    } else {
-      return `/${pageContext.category}/${pageContext.currentPage - 1}`;
-    }
-  };
-
-  const isMoreBlogs = () => {
-    if (pageContext.currentPage < pageContext.numPages) {
-      return true;
-    }
-  };
-
-  const NextBlogLink = () => {
-    return `/${pageContext.category}/${pageContext.currentPage + 1}`;
-  };
-
   return (
     <Layout>
       <Seo />
@@ -38,25 +15,7 @@ export default function BlogCategory({ data, pageContext }) {
           blogs={data.allMarkdownRemark.edges}
           title={pageContext.category}
         />
-
-        <nav className="w-full flex justify-center mb-5">
-          {isPreviousBlogs() && (
-            <a
-              className="border border-black px-4 py-2 mr-2"
-              href={PreviousBlogLink()}
-            >
-              Previous
-            </a>
-          )}
-          {isMoreBlogs() && (
-            <a
-              className="border border-black px-4 py-2 mr-2"
-              href={NextBlogLink()}
-            >
-              Next
-            </a>
-          )}
-        </nav>
+        <Pagination url={pageContext.category} pageContext={pageContext} />
       </section>
     </Layout>
   );

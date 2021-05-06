@@ -10,6 +10,16 @@ Cypress.Commands.add("getCategoryCard", () => {
     });
 });
 
+describe("Accessibility tests", () => {
+  beforeEach(() => {
+    cy.visit("/categories/").get("main").injectAxe();
+  });
+  it("Has no detectable accessibility violations on load", () => {
+    cy.wait(500); // wait for rehydration
+    cy.checkA11y();
+  });
+});
+
 describe("Categories are displayed", () => {
   describe("on homepage", () => {
     it("A topic exist and can be navigated", () => {
