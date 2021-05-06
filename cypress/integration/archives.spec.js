@@ -1,3 +1,13 @@
+describe("Accessibility tests", () => {
+  beforeEach(() => {
+    cy.visit("/archives/").get("main").injectAxe();
+  });
+  it("Has no detectable accessibility violations on load", () => {
+    cy.wait(500); // wait for rehydration
+    cy.checkA11y();
+  });
+});
+
 describe("archives page", () => {
   beforeEach(() => {
     cy.visit("/archives/");
