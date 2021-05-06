@@ -3,10 +3,6 @@ describe("Site works", () => {
     cy.visit("/");
     cy.wait(500); // wait for rehydration
     cy.contains("About Me").click();
-    cy.url().should("include", "/about/");
-    //
-    //     cy.contains('type').click()
-    // // Should be on a new URL which includes '/commands/actions'
   });
 });
 
@@ -14,19 +10,23 @@ describe("Home page", () => {
   beforeEach(() => {
     cy.visit("/");
   });
+
+  it("Nav link exists and works", () => {
+    cy.contains(/DPJ/i).should("have.attr", "href");
+    cy.contains(/DPJ/i).click();
+  });
+
   // check content
   it("Main Heading is displayed", () => {
     cy.get("h1").contains(/Daniel Philip Johnson/i);
   });
-
-  // find buttons
 
   it("Banner links exists", () => {
     cy.contains(/Get in Touch/i).should("have.attr", "href");
     cy.contains(/About Me/i).should("have.attr", "href");
   });
 
-  it("Navigates to About", () => {
+  it("Navigate to About", () => {
     cy.wait(500); // wait for rehydration
     cy.contains("About Me").click();
     cy.url().should("include", "/about/");
@@ -42,9 +42,19 @@ describe("Home page", () => {
         cy.visit(href);
       });
   });
-  // check topics
 
-  // check footer
+  it("Topics exist and can be navigated", () => {
+    cy.wait(500); // wait for rehydration
+    cy.contains(/Topics/i).should("be.visible");
 
-  // cy.get('.left-nav>.nav').children().should('have.length', 8)
+    cy.get(".category-header p")
+      .first()
+      .then(($btn) => {
+        const category = $btn.text();
+        cy.get(`a[href*="${category}"]`).should("have.attr", "href");
+      })
+      .then((href) => {
+        cy.visit(href);
+      });
+  });
 });
