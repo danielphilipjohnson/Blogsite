@@ -1,0 +1,7 @@
+.banner {
+  background-color: #000;
+  position: absolute !important;
+  height: 715px;
+  filter: brightness(0.27);
+  width: 100% !important;
+}
