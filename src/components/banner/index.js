@@ -15,8 +15,8 @@ import "./banner.css";
 
 function Banner() {
   return (
-    <header
-      className="w-full pt-5 md:py-20 md:mb-4"
+    <div
+      className="w-full pt-5 md:py-20 md:mb-4 bg-black"
       style={{
         height: "500px",
       }}
@@ -25,7 +25,7 @@ function Banner() {
         className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
         src="../../images/showcase.jpg"
         alt="showcase"
-        placeholder="blurred"
+        placeholder="none"
         layout="fixed"
         height={590}
         formats={["auto", "avif", "webp", "png"]}
@@ -51,9 +51,13 @@ function Banner() {
 
           <div className="md:w-2/3">
             <div className="md:mb-4 text-center md:text-left">
-              <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold mb-2 md:mb-6">
-                Daniel <span style={{ color: "#94c85a" }}>Philip</span> Johnson
-              </h1>
+              <header>
+                <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold mb-2 md:mb-6">
+                  Daniel <span style={{ color: "#94c85a" }}>Philip</span>{" "}
+                  Johnson
+                </h1>
+              </header>
+
               <ul className="flex justify-center md:justify-start text-2xl md:text-3xl lg:text-5xl mb-2 md:mb-6">
                 <li className="mr-4">
                   <a
@@ -148,7 +152,7 @@ function Banner() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 
