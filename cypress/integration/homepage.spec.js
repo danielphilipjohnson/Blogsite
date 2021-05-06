@@ -32,29 +32,14 @@ describe("Home page", () => {
     cy.url().should("include", "/about/");
   });
 
-  it("finds first blog and visit", () => {
-    cy.wait(500); // wait for rehydration
-    cy.get(".blog-link")
-      .first()
-      .should("have.attr", "href")
-      .and("include", "blogs")
-      .then((href) => {
-        cy.visit(href);
-      });
-  });
-
-  it("Topics exist and can be navigated", () => {
-    cy.wait(500); // wait for rehydration
-    cy.contains(/Topics/i).should("be.visible");
-
-    cy.get(".category-header p")
-      .first()
-      .then(($btn) => {
-        const category = $btn.text();
-        cy.get(`a[href*="${category}"]`).should("have.attr", "href");
-      })
-      .then((href) => {
-        cy.visit(href);
-      });
-  });
+  // it("finds first blog and visit", () => {
+  //   cy.wait(500); // wait for rehydration
+  //   cy.get(".blog-link")
+  //     .first()
+  //     .should("have.attr", "href")
+  //     .and("include", "blogs")
+  //     .then((href) => {
+  //       cy.visit(href);
+  //     });
+  // });
 });

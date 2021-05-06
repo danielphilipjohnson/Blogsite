@@ -1,4 +1,4 @@
-Cypress.Commands.add("getCategoryCard", (label) => {
+Cypress.Commands.add("getCategoryCard", () => {
   cy.get(".category-header p")
     .first()
     .then(($btn) => {
