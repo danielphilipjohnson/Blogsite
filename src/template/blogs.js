@@ -36,23 +36,23 @@ export default function BlogsTemplate({ data, pageContext }) {
       <section className="container pt-10">
         <Blogs blogs={data.allMarkdownRemark.edges} title={"All blogs"} />
       </section>
-      <nav className="w-full flex justify-center mb-5">
-        {isPreviousBlogs() && (
-          <a
-            className="border border-black px-4 py-2 mr-2"
-            href={PreviousBlogLink()}
-          >
-            Previous
-          </a>
-        )}
-        {isMoreBlogs() && (
-          <a
-            className="border border-black px-4 py-2 mr-2"
-            href={NextBlogLink()}
-          >
-            Next
-          </a>
-        )}
+      <nav
+        className="w-full flex justify-center pb-5"
+        role="navigation"
+        aria-label="Pagination Navigation"
+      >
+        <ul>
+          {isPreviousBlogs() && (
+            <li className="border border-black px-4 py-2 mr-2">
+              <a href={PreviousBlogLink()}>Previous</a>
+            </li>
+          )}
+          {isMoreBlogs() && (
+            <li className="border border-black px-4 py-2 mr-2">
+              <a href={NextBlogLink()}>Next</a>
+            </li>
+          )}
+        </ul>
       </nav>
     </Layout>
   );

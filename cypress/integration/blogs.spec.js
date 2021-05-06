@@ -8,6 +8,16 @@ Cypress.Commands.add("getBlog", () => {
     });
 });
 
+describe("Accessibility tests", () => {
+  beforeEach(() => {
+    cy.visit("/blogs/").get("main").injectAxe();
+  });
+  it("Has no detectable accessibility violations on load", () => {
+    cy.wait(500); // wait for rehydration
+    cy.checkA11y();
+  });
+});
+
 describe("Blogs are displayed", () => {
   describe("on home page", () => {
     it("finds first blog and visit", () => {
