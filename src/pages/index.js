@@ -41,7 +41,11 @@ export const query = graphql`
             category
             cover {
               childImageSharp {
-                gatsbyImageData(width: 800, height: 500)
+                gatsbyImageData(
+                  width: 800
+                  height: 500
+                  formats: [AUTO, WEBP, AVIF, PNG]
+                )
               }
             }
           }

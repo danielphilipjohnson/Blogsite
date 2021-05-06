@@ -26,6 +26,7 @@ function Blogs({ blogs, title }) {
                     image={image}
                     height={450}
                     width={800}
+                    formats={["auto", "avif", "webp", "png"]}
                     style={{ minHeight: "300px" }}
                     alt={"blog " + node.frontmatter.title}
                   />

@@ -15,15 +15,11 @@ const fetchBlogCategories = async (graphql) => {
 const createAllBlogsPages = (data, actions, postsPerPage = 4) => {
   const { blogs } = data;
   const { edges } = blogs;
-  console.log(edges);
-
   if (!edges.length) {
     throw new Error("There are no blogs!");
   }
 
   const { createPage } = actions;
-
-  // const postsPerPage = 4;
 
   const numPages = Math.ceil(edges.length / postsPerPage);
 

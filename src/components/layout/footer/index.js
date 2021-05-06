@@ -26,7 +26,7 @@ function Footer() {
             <nav>
               <ul>
                 <li className="my-2">
-                  <Link to={`/blogs/`}>Blog</Link>
+                  <Link to={`/blogs/`}>Blogs</Link>
                 </li>
                 <li className="my-2">
                   <Link to={`/categories/`}>Blog Categories</Link>

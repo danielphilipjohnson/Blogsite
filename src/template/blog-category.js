@@ -88,7 +88,7 @@ export const blogListQuery = graphql`
                 gatsbyImageData(
                   width: 800
                   placeholder: BLURRED
-                  formats: [AUTO, WEBP, PNG]
+                  formats: [AUTO, WEBP, AVIF, PNG]
                 )
               }
             }

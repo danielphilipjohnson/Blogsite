@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { StaticImage } from "gatsby-plugin-image";
-import profileImage from "../../images/profile.png";
+
 import "./banner.css";
 
 function Banner() {
@@ -28,6 +28,7 @@ function Banner() {
         placeholder="blurred"
         layout="fixed"
         height={590}
+        formats={["auto", "avif", "webp", "png"]}
       />
 
       <div className="container">
@@ -36,21 +37,16 @@ function Banner() {
           items-center justify-items-center text-white group relative"
         >
           <figure className="rounded-full bg-gradient-to-r dark:bg-gradient-to-l from-blue-700 to-purple-800  p-2 mb-4 md:mr-7 ">
-            <img
-              className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
-              src={profileImage}
-              alt="profile of daniel philip johnson"
-            />
-            {/* <StaticImage
-              className="w-36 md:w-56 lg:w-64 object-contain rounded-full"
+            <StaticImage
+              className="profile-img w-36 md:w-56 lg:w-64 object-contain rounded-full relative z-10"
               src="../../images/profile.png"
               alt="profile of daniel philip johnson"
               placeholder="blurred"
               layout="fixed"
               width={165}
               height={165}
-              formats={["auto","webp"]
-            /> */}
+              formats={["AUTO", "PNG", "WEBP", "AVIF"]}
+            />
           </figure>
 
           <div className="md:w-2/3">
@@ -111,7 +107,7 @@ function Banner() {
                 </li>
               </ul>
 
-              <div className="">
+              <div>
                 <p className="md:text-xl mb-4">
                   Former &lt;Front End Engineer /&gt; at CodeCareer.io who
                   specialises with{" "}
