@@ -7,6 +7,8 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "preload-fonts": "gatsby-preload-fonts",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -21,6 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.2.5",
+    "cypress": "^7.2.0",
     "gatsby": "^3.3.1",
     "gatsby-image": "^3.4.0",
     "gatsby-plugin-advanced-sitemap": "^1.6.0",
@@ -46,6 +49,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "start-server-and-test": "^1.12.1",
     "tailwindcss": "^2.1.1"
   },
   "devDependencies": {
