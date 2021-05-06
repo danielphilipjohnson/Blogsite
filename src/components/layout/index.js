@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Nav />
-      <div className="bg-gray-50">{children}</div>
+      <main className="bg-gray-50">{children}</main>
       <Footer />
     </>
   );
