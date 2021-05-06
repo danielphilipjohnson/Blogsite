@@ -43,7 +43,7 @@ function Blogs({ blogs, title }) {
                       {node.frontmatter.title}
                     </h2>
                   </header>
-                  <p className="mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight">
+                  <p className="mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight bg-black p-2">
                     Read more
                   </p>
                 </Link>

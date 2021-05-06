@@ -23,35 +23,31 @@ function Footer() {
             <h3 className="uppercase font-bold border-b-2 mb-4 w-36">
               Internal links
             </h3>
-            <nav>
-              <ul>
-                <li className="my-2">
-                  <Link to={`/blogs/`}>Blogs</Link>
-                </li>
-                <li className="my-2">
-                  <Link to={`/categories/`}>Blog Categories</Link>
-                </li>
-                <li className="my-2">
-                  <a href="https://www.danielphilipjohnson.com/work/">
-                    Projects
-                  </a>
-                </li>
-                <li className="my-2">
-                  <a href="https://www.danielphilipjohnson.com/contact/">
-                    Contact Me
-                  </a>
-                </li>
-                <li className="my-2">
-                  <Link to={`/about/`}>About Me</Link>
-                </li>
-                <li className="my-2">
-                  <Link to={`/archives/`}>Archives</Link>
-                </li>
-                <li className="my-2">
-                  <Link to={`/sitemap-pages.xml`}>Sitemap</Link>
-                </li>
-              </ul>
-            </nav>
+            <ul>
+              <li className="my-2">
+                <Link to={`/blogs/`}>Blogs</Link>
+              </li>
+              <li className="my-2">
+                <Link to={`/categories/`}>Blog Categories</Link>
+              </li>
+              <li className="my-2">
+                <a href="https://www.danielphilipjohnson.com/work/">Projects</a>
+              </li>
+              <li className="my-2">
+                <a href="https://www.danielphilipjohnson.com/contact/">
+                  Contact Me
+                </a>
+              </li>
+              <li className="my-2">
+                <Link to={`/about/`}>About Me</Link>
+              </li>
+              <li className="my-2">
+                <Link to={`/archives/`}>Archives</Link>
+              </li>
+              <li className="my-2">
+                <Link to={`/sitemap-pages.xml`}>Sitemap</Link>
+              </li>
+            </ul>
             <p className="mt-4">
               ©2020-2021 Developed by Daniel Philip Johnson
             </p>
