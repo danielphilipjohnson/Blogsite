@@ -22,7 +22,7 @@ export default function About() {
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
           <span role="img" aria-label="hello">
-            👋{" "}
+            🖐
           </span>
           I am Daniel
           <span role="img" aria-label="sparkles">
