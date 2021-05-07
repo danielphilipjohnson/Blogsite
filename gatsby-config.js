@@ -2,7 +2,7 @@ const config = require("./config/website");
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `http://danielphilipjohnson.me/`,
+    siteUrl: `http://danielphilipjohnson.blog/`,
     title: config.siteTitle,
     twitterHandle: config.twitterHandle,
     description: config.siteDescription,
