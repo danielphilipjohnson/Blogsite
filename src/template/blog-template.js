@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
-import Seo from "../components/SEO";
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./blog-styles.css";
 
+// missing seo and need to check if its still needed
 export default function Template({ data, pageContext }) {
   const post = data.markdownRemark;
 
@@ -35,7 +35,7 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
-      <Seo
+      {/* <Seo
         pageData={pageContext}
         metaImage={
           post.frontmatter.cover.childImageSharp.gatsbyImageData.images.fallback
@@ -46,7 +46,7 @@ export default function Template({ data, pageContext }) {
         title={post.frontmatter.title}
         description={post.frontmatter.description}
         datePublished={post.frontmatter.datePublished}
-      />
+      /> */}
       <article className="container py-4">
         <span
           className="bg-gradient-to-r from-blue-700 to-green-800 

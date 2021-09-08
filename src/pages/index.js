@@ -1,60 +1,18 @@
 import React from "react";
-import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import Blogs from "../components/blogs";
 import Categories from "../components/categories";
 import Banner from "../components/banner";
-import Seo from "../components/SEO";
+import RecentBlogs from "../components/blogs/recent";
 
-export default function Home({ data }) {
+export default function Home() {
   return (
     <>
       <Layout>
-        <Seo />
         <Banner />
-        <div className="pt-2 md:pt-8 container">
-          <Blogs blogs={data.blogs.edges} title={"Latest Posts"} />
-        </div>
-        <Categories categories={data.categories.distinct} data={data} />
+        <RecentBlogs title={"Latest Posts"} />
+        <Categories />
       </Layout>
     </>
   );
 }
-
-export const query = graphql`
-  query {
-    blogs: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 2
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            category
-            cover {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 800
-                  height: 500
-                  formats: [AUTO, WEBP, AVIF, PNG]
-                )
-              }
-            }
-          }
-          excerpt
-        }
-      }
-    }
-    categories: allMarkdownRemark {
-      distinct(field: frontmatter___category)
-    }
-  }
-`;

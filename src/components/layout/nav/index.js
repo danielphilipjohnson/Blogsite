@@ -1,28 +1,119 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
-function Nav() {
-  return (
-    <nav
-      className="sticky top-0 z-40 w-full max-w-8xl mx-auto bg-white border-b border-gray-200 px-4 py-3 text-gray-700 flex items-center justify-between"
-      role="navigation"
-      aria-labelledby="nav1"
-    >
-      <ul>
-        <li>
-          <Link
-            to="/"
-            id="nav1"
-            className="inline-flex w-14 h-14 font-header font-bold text-xl justify-center items-center text-center text-front border-2 border-solid border-front rounded-full"
-          >
-            DPJ
-          </Link>
-        </li>
-      </ul>
+import { StaticImage } from "gatsby-plugin-image";
 
-      <span className="bg-transparent pr-7 py-1 text-gray-900 font-large font-bold">
-        v0.0.1
-      </span>
-    </nav>
+function Nav() {
+  const [openNav, setOpenNav] = useState(false);
+  const menuRef = useRef();
+  const navRef = useRef();
+  const menuNavRef = useRef();
+
+  const openMenu = () => {
+    const htmlMenuNodes = menuNavRef.current.children[0].children;
+    var menuItems = Array.from(htmlMenuNodes);
+
+    if (!openNav) {
+      setOpenNav(true);
+      menuRef.current.classList.add("closed");
+      navRef.current.classList.add("show");
+      menuNavRef.current.classList.add("show");
+      menuItems.forEach((item) => item.classList.add("show"));
+    } else {
+      setOpenNav(false);
+      menuRef.current.classList.remove("closed");
+      navRef.current.classList.remove("show");
+      menuNavRef.current.classList.remove("show");
+      menuItems.forEach((item) => item.classList.remove("show"));
+    }
+  };
+  return (
+    <>
+      <nav
+        className="sticky top-0 z-20 w-full max-w-8xl mx-auto bg-white border-b border-gray-200 px-4 py-5 text-gray-700 flex items-center justify-between"
+        role="navigation"
+        aria-labelledby="nav1"
+      >
+        <ul className="flex w-full md:w-auto ">
+          <li className="w-full block">
+            <Link className="w-full block flex flex justify-end" to="/">
+              <StaticImage
+                className="w-full "
+                src="../../../images/icon.png"
+                alt="showcase"
+                placeholder="none"
+                layout="fixed"
+                height={42}
+                formats={["auto", "avif", "webp", "png"]}
+              />
+            </Link>
+          </li>
+        </ul>
+        <ul className="hidden md:flex justify-between text-md">
+          <li className="px-2 py-1 mx-2 rounded nav-link">
+            <a className="font-black" href="/">
+              Latest
+            </a>
+          </li>
+          <li className="px-2 py-1 mx-2 rounded nav-link">
+            <a className="font-black" href="/">
+              Tutorials
+            </a>
+          </li>
+          <li className="px-2 py-1 mx-2 rounded nav-link">
+            <a className="font-black" href="/">
+              Series
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav
+        className="bg-primary-alt menu w-full overflow-hidden fixed top-0 z-30"
+        ref={navRef}
+      >
+        <div className="menu-nav show " ref={menuNavRef}>
+          <ul className="fixed top-20 left-6 flex w-3/4 h-3/4 flex-col text-white">
+            <li className="nav-item pb-12">
+              <Link to="/" className="nav-link text-3xl">
+                Latest
+              </Link>
+            </li>
+            <li className="nav-item text-3xl">
+              <Link to="/" className="nav-link pb-4 text-white">
+                Tutorials
+              </Link>
+              <ul className="pl-8 text-white text-xl space-y-6 mt-6 mb-12">
+                <li>React</li>
+                <li>Vue</li>
+                <li>Django</li>
+              </ul>
+            </li>
+            <li className="nav-item text-3xl text-white">
+              <Link
+                to="/markdown/"
+                className="nav-link"
+                activeClassName="current"
+              >
+                Series
+              </Link>
+              <ul className="pl-8 text-white text-xl space-y-6 mt-6 mb-12">
+                <li>Junior to senior</li>
+                <li>Better programming</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <button
+        ref={menuRef}
+        className="menu-btn sm:hidden fixed top-4 right-0 w-full z-50 pointer p-4"
+        onClick={openMenu}
+        role="menu"
+      >
+        <div className="btn-line"></div>
+        <div className="btn-line"></div>
+        <div className="btn-line"></div>
+      </button>
+    </>
   );
 }
 

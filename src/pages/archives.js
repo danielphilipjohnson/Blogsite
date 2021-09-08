@@ -3,22 +3,11 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import ArchiveBlogs from "../components/archive-blogs";
-import Seo from "../components/SEO";
 
 export default function Home({ data }) {
-  const description = `Blog archives of all my blogs ranging from react, career development, reflection and tips on how to improve as a developer`;
-
   return (
     <>
-      <Layout>
-        <Seo
-          keywords={
-            "Blog Archive Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
-          }
-          title={"Blog Archives"}
-          description={description}
-        />
-
+      <Layout seo={data.strapiArchivepage.seo}>
         <div className="pt-2 md:pt-8 container pb-12">
           <ArchiveBlogs
             blogs={data.blogs.edges}
@@ -63,6 +52,18 @@ export const query = graphql`
     }
     categories: allMarkdownRemark {
       distinct(field: frontmatter___category)
+    }
+    strapiArchivepage {
+      seo {
+        metaTitle
+        metaDescription
+        shareImage {
+          localFile {
+            publicURL
+          }
+        }
+        keywords
+      }
     }
   }
 `;

@@ -29,6 +29,21 @@ module.exports = {
     image: config.image,
   },
   plugins: [
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.API_URL || "http://localhost:1337",
+        collectionTypes: ["article", "category", "writer"],
+        singleTypes: [
+          `homepage`,
+          `global`,
+          `aboutpage`,
+          `archivepage`,
+          `catergoriespage`,
+        ],
+        queryLimit: 1000,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images

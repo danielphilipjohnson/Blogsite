@@ -7,7 +7,7 @@ module.exports = {
   pathPrefix: "/",
   siteLogo: "images/logo.png", // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription:
-    "Growing monthly blogs geared towards developers, guides & tutorials to level up your career. I also document my developer journey from junior to senior",
+    "My name is Daniel Philip Johnson. I'm Fullstack Developer and this is my personal blog. I'll be sharing with you my journey",
   minibio: `
     Former Front End Engineer at CodeCareer.io who specialises with React | Javascript | Tailwind | Bootstrap 4 | SASS.
   `,
@@ -19,8 +19,7 @@ module.exports = {
   ogLanguage: "en_US",
   image: "images/banner.png",
   keywords:
-    "reflection blogs, react blogs, Front-End Engineer, Front-End Engineer, London, web development, reactjs, nodejs, graphql",
-
+    "tech-blogs, django-rest, react, reactjs, Fullstack Engineer, fullstack Developer, London, web development, docker, graphql, kubernetes",
   // Manifest and Progress color need to change to mine
   // themeColor: "#4147DC",
   // backgroundColor: "#231C42",

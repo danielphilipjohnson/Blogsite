@@ -3,13 +3,11 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
-import Seo from "../components/SEO";
 
 export default function Status404() {
   return (
     <>
       <Layout>
-        <Seo />
         <section className="-my-2">
           <StaticImage
             src={"../images/404bg.jpg"}

@@ -179,3 +179,21 @@ exports.createPages = async ({ graphql, actions }) => {
   //4 generate all blogs
   createAllBlogsPages(data, actions, 4);
 };
+
+exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        path: require.resolve("path-browserify"),
+      },
+      fallback: {
+        fs: false,
+      },
+    },
+  });
+  if (stage === "build-javascript" || stage === "develop") {
+    actions.setWebpackConfig({
+      plugins: [plugins.provide({ process: "process/browser" })],
+    });
+  }
+};
