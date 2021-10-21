@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import Search from "../../search";
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
@@ -60,9 +61,9 @@ function Nav() {
             </a>
           </li>
           <li className="px-2 py-1 mx-2 rounded nav-link">
-            <a className="font-black" href="/">
+            <Link className="font-black" to="/series">
               Series
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -71,23 +72,26 @@ function Nav() {
         ref={navRef}
       >
         <div className="menu-nav show " ref={menuNavRef}>
-          <ul className="fixed top-20 left-6 flex w-3/4 h-3/4 flex-col text-white">
+          <ul className="fixed top-20 left-6 flex w-3/4 h-3/4 flex-col ">
+            <li className="nav-item pb-12">
+              <Search />
+            </li>
             <li className="nav-item pb-12">
               <Link to="/" className="nav-link text-3xl">
                 Latest
               </Link>
             </li>
             <li className="nav-item text-3xl">
-              <Link to="/" className="nav-link pb-4 text-white">
+              <Link to="/" className="nav-link pb-4 ">
                 Tutorials
               </Link>
-              <ul className="pl-8 text-white text-xl space-y-6 mt-6 mb-12">
+              <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
                 <li>React</li>
                 <li>Vue</li>
                 <li>Django</li>
               </ul>
             </li>
-            <li className="nav-item text-3xl text-white">
+            <li className="nav-item text-3xl ">
               <Link
                 to="/markdown/"
                 className="nav-link"
@@ -95,7 +99,7 @@ function Nav() {
               >
                 Series
               </Link>
-              <ul className="pl-8 text-white text-xl space-y-6 mt-6 mb-12">
+              <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
                 <li>Junior to senior</li>
                 <li>Better programming</li>
               </ul>
