@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import useSiteMetadata from "../../hooks/use-site-metadata";
 
-const SEO = ({ seo = {} }) => {
+const SEO = ({ seo = {}, location }) => {
   const { strapiGlobal } = useStaticQuery(query);
-  const { defaultSeo, siteName, favicon } = strapiGlobal;
+  const { defaultSeo, siteName, favicon, siteUrl } = strapiGlobal;
 
   // Merge default and page-specific SEO values
   const fullSeo = { ...defaultSeo, ...seo };
@@ -90,6 +91,10 @@ const SEO = ({ seo = {} }) => {
           rel: "icon",
           href: favicon.publicURL,
         },
+        {
+          rel: "canonical",
+          href: siteUrl,
+        },
       ]}
       meta={metaTags}
     />
@@ -116,6 +121,7 @@ const query = graphql`
   query {
     strapiGlobal {
       siteName
+      siteUrl
       favicon {
         localFile {
           publicURL
