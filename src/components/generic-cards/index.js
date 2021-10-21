@@ -33,7 +33,7 @@ const Categories = ({ location, name, articles }) => {
                   />
                 </figure>
                 <Link
-                  to={`${article.slug}`}
+                  to={`/article/${article.slug}`}
                   className="blog-link absolute 2 inset-0 p-6 flex flex-col items-start cursor-pointer transition-cursor duration-300 ease-in-out text-white"
                 >
                   <header className="w-full">
