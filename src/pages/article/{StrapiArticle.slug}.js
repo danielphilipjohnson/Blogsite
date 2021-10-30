@@ -31,7 +31,7 @@ export const query = graphql`
         picture {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 30)
+              gatsbyImageData(width: 48, height: 48)
             }
           }
         }
@@ -53,73 +53,51 @@ const Article = ({ data }) => {
 
   return (
     <Layout seo={seo}>
-      <article className="container py-4">
-        <span
-          className="bg-gradient-to-r from-blue-700 to-green-800 
-        w-max font-medium text-white block uppercase 
-        py-4 px-2 md:text-4xl rounded mb-4"
-        >
-          {article.category.name}
-        </span>
-        <header className="mb-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight md:leading-snug">
-            {article.title}
-          </h1>
-          <p>Created by {article.author.name}</p>
-          <div className="meta">
-            <p className="date mt-2">
-              Last updated on
-              {/*  */}
-              <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-            </p>
-            {/* <p className="time mt-2">{cupsOfCoffee(post)} min read </p> */}
-          </div>
-        </header>
-        <figure className="mb-4">
-          <a href="https://github.com/danielphilipjohnson">
+      <article className="mx-auto max-w-7xl px-8 md:px-16 lg:px-24 pb-16">
+        <figure>
             <GatsbyImage
-              class="w-full shadow-lg object-cover rounded-lg"
+              class="w-full shadow-lg object-cover "
               alt={`Picture for ${article.title} article`}
               image={article.image.localFile.childImageSharp.gatsbyImageData}
               layout="fullWidth"
             />
-          </a>
-          <figcaption className="mt-2 text-center image-caption">
-            <p className="pt-3">
-              <span className="mr-2">Image Credit:</span>
-              <a
-                className="font-bold"
-                href="https://unsplash.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {/* alternativeText */}
-                {/* {post.frontmatter.imageCredit} */}
-              </a>
-            </p>
-          </figcaption>
         </figure>
-        <div className="custom-blog">
-          <Markdown children={article.content} escapeHtml={false} />
+
+        <header className="py-10">
+          <h1 className="text-5xl font-extrabold tracking-tight mb-2 leading-tight md:leading-snug">
+            {article.title}
+          </h1>
+        </header>
+        <div className="flex mb-8 py-8 border-b border-t">
+          <div className="mr-4">
+            {article.author.picture && (
+              <GatsbyImage
+                image={
+                  article.author.picture.localFile.childImageSharp
+                    .gatsbyImageData
+                }
+                alt={`Picture of ${article.author.name}`}
+                style={{ borderRadius: "50%" }}
+              />
+            )}
+          </div>
+          <div>
+            <p className="font-bold text-gray-800">
+              Created by {article.author.name}
+            </p>
+            <p className="date text-gray-500">
+              Published on
+              <span className="pl-1 font-bold">
+                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+              </span>
+            </p>
+          </div>
+          {/* <p className="time mt-2">{cupsOfCoffee(post)} min read </p> */}
         </div>
 
-        {/* <div>
-          {article.author.picture && (
-            <GatsbyImage
-              image={
-                article.author.picture.localFile.childImageSharp.gatsbyImageData
-              }
-              alt={`Picture of ${article.author.name}`}
-              style={{ borderRadius: "50%" }}
-            />
-          )}
+        <div className="custom-blog md:px-16">
+          <Markdown children={article.content} escapeHtml={false} />
         </div>
-        <div className="uk-width-expand">
-          <p className="uk-margin-remove-bottom">By {article.author.name}</p>
-          <p className="uk-text-meta uk-margin-remove-top">
-            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-          </p>
-        </div> */}
       </article>
     </Layout>
   );
