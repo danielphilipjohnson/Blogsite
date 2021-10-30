@@ -41,6 +41,8 @@ const query = graphql`
         slug
         category
         description
+        excerpt
+        published_at
         image {
           localFile {
             childImageSharp {

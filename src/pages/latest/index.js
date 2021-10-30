@@ -44,10 +44,12 @@ const query = graphql`
         }
         title
         slug
+        published_at
         category {
           name
         }
         description
+        excerpt
         image {
           localFile {
             childImageSharp {
