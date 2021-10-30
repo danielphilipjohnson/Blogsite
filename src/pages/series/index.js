@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import GenericCards from "../../components/generic-cards";
 import HeroBanner from "../../components/hero/genericHero";
-import BreadCrumb from "../../components/breadcrumb";
+import SeriesPage from "../../components/page-template";
 
 const query = graphql`
   query {
@@ -44,10 +44,10 @@ const query = graphql`
         description
         image {
           localFile {
-          childImageSharp {
-            gatsbyImageData
+            childImageSharp {
+              gatsbyImageData
+            }
           }
-        }
           alternativeText
         }
       }
@@ -58,15 +58,19 @@ const query = graphql`
 
 function Series({ location }) {
   const data = useStaticQuery(query);
-  
+
   const { SEO, Hero } = data.allStrapiSeriespage.nodes[0];
   const { articles, name } = data.strapiSeries;
-  
+
   return (
     <>
       <Layout seo={SEO}>
-        <HeroBanner location={location} Hero={Hero} />
-        <GenericCards name={name} articles={articles} />
+        <SeriesPage
+          location={location}
+          Hero={Hero}
+          name={name}
+          articles={articles}
+        />
       </Layout>
     </>
   );
