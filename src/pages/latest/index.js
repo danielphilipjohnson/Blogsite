@@ -63,7 +63,6 @@ const query = graphql`
 function Series({ location }) {
   const data = useStaticQuery(query);
   const { SEO, Hero } = data.strapiLatestPage.Page;
-  console.log(data.allStrapiArticle.nodes[0])
   const articles = data.allStrapiArticle.nodes;
 
   return (
