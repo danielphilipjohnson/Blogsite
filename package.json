@@ -43,15 +43,12 @@
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-remark-embed-snippet": "^6.1.0",
     "gatsby-remark-images": "^5.1.0",
-    "gatsby-remark-prismjs": "^5.1.0",
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-source-strapi": "^1.0.2",
-    "gatsby-transformer-remark": "^4.1.0",
     "gatsby-transformer-sharp": "^3.4.0",
     "moment": "^2.29.1",
     "path-browserify": "^1.0.1",
     "postcss": "^8.2.12",
-    "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
@@ -62,12 +59,5 @@
   },
   "devDependencies": {
     "prettier": "2.2.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
