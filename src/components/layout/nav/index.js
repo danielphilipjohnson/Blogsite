@@ -34,11 +34,11 @@ function Nav() {
         role="navigation"
         aria-labelledby="nav1"
       >
-        <ul className="flex w-full md:w-auto ">
+        <ul className="flex w-full md:w-auto">
           <li className="w-full block">
             <Link className="w-full block flex flex justify-end" to="/">
               <StaticImage
-                className="w-full "
+                className="w-full"
                 src="../../../images/icon.png"
                 alt="showcase"
                 placeholder="none"
@@ -56,9 +56,9 @@ function Nav() {
             </Link>
           </li>
           <li className="px-2 py-1 mx-2 rounded nav-link">
-            <a className="font-black" href="/">
+            <Link className="font-black" to="/tutorials">
               Tutorials
-            </a>
+            </Link>
           </li>
           <li className="px-2 py-1 mx-2 rounded nav-link">
             <Link className="font-black" to="/series">
@@ -77,32 +77,32 @@ function Nav() {
               <Search />
             </li>
             <li className="nav-item pb-12">
-              <Link to="/" className="nav-link text-3xl">
+              <Link to="/latest" className="nav-link text-3xl">
                 Latest
               </Link>
             </li>
-            <li className="nav-item text-3xl">
-              <Link to="/" className="nav-link pb-4 ">
+            <li className="nav-item text-3xl pb-12">
+              <Link to="/tutorials" className="nav-item text-3xl">
                 Tutorials
               </Link>
-              <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
+              {/* <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
                 <li>React</li>
                 <li>Vue</li>
                 <li>Django</li>
-              </ul>
+              </ul> */}
             </li>
-            <li className="nav-item text-3xl ">
+            <li className="nav-item text-3xl pb-12">
               <Link
-                to="/markdown/"
+                to="/series/"
                 className="nav-link"
                 activeClassName="current"
               >
                 Series
               </Link>
-              <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
+              {/* <ul className="pl-8  text-xl space-y-6 mt-6 mb-12">
                 <li>Junior to senior</li>
                 <li>Better programming</li>
-              </ul>
+              </ul> */}
             </li>
           </ul>
         </div>
