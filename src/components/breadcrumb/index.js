@@ -8,7 +8,7 @@ function BreadCrumb({ location }) {
     if (i === totalLocations - 1 && li !== "") {
       return (
         <li class="inline-flex items-center" key={li}>
-          <p to={"/" + li} className="text-teal-400 capitalize">
+          <p to={"/" + li} className="capitalize">
             {li}
           </p>
         </li>
@@ -16,7 +16,7 @@ function BreadCrumb({ location }) {
     } else if (li !== "") {
       return (
         <li class="inline-flex items-center" key={li}>
-          <Link to={"/" + li} className="text-teal-400 capitalize">
+          <Link to={"/" + li} className="capitalize">
             {li}
             <span class="ml-4 mr-5">/</span>
           </Link>
@@ -26,8 +26,8 @@ function BreadCrumb({ location }) {
   });
 
   return (
-    <div className="container relative z-10">
-      <ul className="flex text-gray-500 text-sm lg:text-base py-8">
+    <div className="mx-auto relative z-10">
+      <ul className="flex text-gray-100 text-sm lg:text-base py-8">
         <li className="inline-flex items-center">
           <a href="/">
             <svg

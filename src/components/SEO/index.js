@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import useSiteMetadata from "../../hooks/use-site-metadata";
 
 const SEO = ({ seo = {}, location }) => {
   const { strapiGlobal } = useStaticQuery(query);

@@ -1,28 +1,29 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
-//import categoryReflect from "../../images/category/reflection.webp";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const Categories = ({ location }) => {
   const data = useStaticQuery(query);
 
   return (
-    <div className="container">
+    <div className="px-8 py-16 max-w-7xl">
       <div className="text-center font-bold  text-2xl">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
-          <h1 className="text-5xl capitalize">Topics</h1>
+          <h1 className="text-5xl capitalize">
+            <Link to="/categories">Popular Categories</Link>
+          </h1>
         </header>
       </div>
 
-      <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-4 md:pb-10">
         {data.allStrapiCategory.edges.map((category, i) => {
           return (
             <div
-              className="w-full md:w-1/2 mb-6 md:mb-10 md:pr-6"
+              className="w-full mb-6 md:mb-10 md:pr-6"
               key={category.node.name}
             >
-              <div className="group relative">
+              <div className="group relative" >
                 <figure className="overflow-hidden rounded-lg">
                   <GatsbyImage
                     className="transform transition duration-300 ease-in-out group-hover:scale-110 filter-mask w-full h-blog-img shadow-lg object-cover rounded-lg"
@@ -55,6 +56,7 @@ const Categories = ({ location }) => {
           );
         })}
       </div>
+
     </div>
   );
 };

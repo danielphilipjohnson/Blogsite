@@ -41,8 +41,6 @@ function Banner() {
   const data = useStaticQuery(query);
   const nodes = data.allStrapiHomepage.nodes;
 
-  //const banner = data.allStrapiHomepage.nodes[0].Banner;
-  //const hero = data.allStrapiHomepage.nodes[0].hero;
 
   return (
     <div
@@ -62,7 +60,7 @@ function Banner() {
       />
       {nodes.map((item, i) => {
         return (
-          <div className="container">
+          <div className="px-8">
             <div
               className="w-full flex flex-col md:flex-row 
           items-center md:items-start justify-items-center text-white group relative"

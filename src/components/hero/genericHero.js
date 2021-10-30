@@ -2,9 +2,6 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-import Markdown from "react-markdown";
-
-
 import { StaticImage } from "gatsby-plugin-image";
 import BreadCrumb from "../breadcrumb";
 
@@ -14,17 +11,17 @@ function HeroBanner({ location, Hero }) {
   const { Banner, Heading, description } = Hero;
   return (
     <>
-      <div className="w-full pt-5 md:py-20 md:mb-4 bg-black relative">
+      <div className="w-full pt-5 px-8 md:py-20 md:mb-4 bg-black relative">
         <BreadCrumb location={location} />
         <Img
           className="section-heading w-full absolute object-cover inset-0 flex flex-col items-start"
           fluid={Banner.localFile.childImageSharp.fluid}
           formats={["auto", "avif", "webp", "png"]}
           height={690}
-          alt="A corgi smiling happily"
+          alt={Heading}
         />
 
-        <div className="container py-8">
+        <div className="mx-auto py-8">
           <div
             className="w-full flex flex-col md:flex-row 
           items-center md:items-start justify-items-center text-white group relative"

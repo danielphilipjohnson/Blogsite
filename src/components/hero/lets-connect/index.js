@@ -13,7 +13,7 @@ import {
 const LetsConnect = ({ location }) => {
   return (
     <section className="bio border-t border-grey" aria-label={"Lets connect"}>
-      <div className="container pt-16 pb-16">
+      <div className="px-8 pt-16 pb-16">
         <div className=" text-center">
           <h1 className="text-2xl font-bold mb-2">
             Want to keep up to date? Subscribe!
