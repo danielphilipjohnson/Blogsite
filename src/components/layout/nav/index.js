@@ -51,9 +51,9 @@ function Nav() {
         </ul>
         <ul className="hidden md:flex justify-between text-md">
           <li className="px-2 py-1 mx-2 rounded nav-link">
-            <a className="font-black" href="/">
+            <Link className="font-black" to="/latest">
               Latest
-            </a>
+            </Link>
           </li>
           <li className="px-2 py-1 mx-2 rounded nav-link">
             <a className="font-black" href="/">

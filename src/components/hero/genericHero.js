@@ -11,15 +11,14 @@ import BreadCrumb from "../breadcrumb";
 import "./banner.css";
 
 function HeroBanner({ location, Hero }) {
-  const { Banner, profile, Heading } = Hero;
-  console.log(Heading)
+  const { Banner, Heading, description } = Hero;
   return (
     <>
       <div className="w-full pt-5 md:py-20 md:mb-4 bg-black relative">
         <BreadCrumb location={location} />
         <Img
           className="section-heading w-full absolute object-cover inset-0 flex flex-col items-start"
-          fluid={Banner.localFile.childrenImageSharp[0].fluid}
+          fluid={Banner.localFile.childImageSharp.fluid}
           formats={["auto", "avif", "webp", "png"]}
           height={690}
           alt="A corgi smiling happily"
@@ -37,6 +36,7 @@ function HeroBanner({ location, Hero }) {
                     {Heading}
                   </h1>
                 </header>
+                <p>{description}</p>
               </div>
             </div>
           </div>

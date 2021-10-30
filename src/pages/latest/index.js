@@ -8,38 +8,45 @@ import SeriesPage from "../../components/page-template";
 
 const query = graphql`
   query {
-    strapiSeriespage {
-      SEO {
-        keywords
-        metaDescription
-        metaTitle
-        preventIndexing
-        shareImage {
-          localFile {
-            publicURL
-          }
-        }
-      }
-      Hero {
-        Heading
-        description
-        Banner {
-          localFile {
-            childImageSharp {
-              fluid {
-                src
+    strapiLatestPage {
+      Page {
+        Seo {
+          metaTitle
+          keywords
+          SharedImage {
+            media {
+              localFile {
+                publicURL
               }
             }
           }
         }
+        Hero {
+          Banner {
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+          Heading
+          description
+        }
       }
     }
-    strapiSeries {
-      articles {
-        author
+
+    allStrapiArticle(limit: 10) {
+      nodes {
+        author {
+          name
+        }
         title
         slug
-        category
+        category {
+          name
+        }
         description
         image {
           localFile {
@@ -47,19 +54,17 @@ const query = graphql`
               gatsbyImageData
             }
           }
-          alternativeText
         }
       }
-      name
     }
   }
 `;
 
 function Series({ location }) {
   const data = useStaticQuery(query);
-
-  const { SEO, Hero } = data.strapiSeriespage;
-  const { articles, name } = data.strapiSeries;
+  const { SEO, Hero } = data.strapiLatestPage.Page;
+  console.log(data.allStrapiArticle.nodes[0])
+  const articles = data.allStrapiArticle.nodes;
 
   return (
     <>
@@ -67,7 +72,7 @@ function Series({ location }) {
         <SeriesPage
           location={location}
           Hero={Hero}
-          name={name}
+          name={"Latest"}
           articles={articles}
         />
       </Layout>
