@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: `Daniel Philip Johnson's Blog`, // Navigation and Site Title
   siteTitleAlt: `The personal blog of Daniel Philip Johnson's`, // Alternative Site title for SEO
   siteTitleShort: "danielpjohnson", // short_name for manifest
-  siteUrl: process.env.ROOT_URL || "http://danielphilipjohnson.me", // Domain of your site. No trailing slash!
+  siteUrl: process.env.ROOT_URL || "https://danielphilipjohnson.blog", // Domain of your site. No trailing slash!
   lang: "en", // Language Tag on <html> element
   pathPrefix: "/",
   siteLogo: "images/logo.png", // Used for SEO and manifest, path to your image you placed in the 'static' folder
