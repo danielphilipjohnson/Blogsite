@@ -3,14 +3,16 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Blogs from "../components/blogs";
+import BreadCrumb from "../components/breadcrumb";
 import Pagination from "../components/shared/pagination";
 
 // missing seo and see if its still needed
-export default function BlogsTemplate({ data, pageContext }) {
+export default function BlogsTemplate({ data, pageContext, location }) {
   return (
     <Layout>
+      <BreadCrumb location={location} />
       <section className="container pt-10">
-        <Blogs blogs={data.allMarkdownRemark.edges} title={"All blogs"} />
+        <Blogs blogs={data.allStrapiArticle.nodes} title={"All blogs"} />
       </section>
 
       <Pagination url={"blogs"} pageContext={pageContext} />
@@ -18,35 +20,36 @@ export default function BlogsTemplate({ data, pageContext }) {
   );
 }
 
+// fect blogs from
 export const blogListQuery = graphql`
   query($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+    allStrapiArticle(
+      
       limit: $limit
       skip: $skip
     ) {
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            id
-            title
-            category
-            cover {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 800
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF, PNG]
-                )
-              }
+      nodes {
+        id
+        published_at
+        title
+        slug
+        author {
+          name
+        }
+
+        category {
+          name
+        }
+        description
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
       }
+      totalCount
     }
   }
 `;
