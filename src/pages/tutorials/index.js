@@ -37,16 +37,12 @@ const query = graphql`
       }
     }
 
-    allStrapiArticle(limit: 10) {
-      nodes {
-        author {
-          name
-        }
+    strapiTutorial {
+      articles {
+        author
         title
         slug
-        category {
-          name
-        }
+        category
         description
         image {
           localFile {
@@ -54,8 +50,10 @@ const query = graphql`
               gatsbyImageData
             }
           }
+          alternativeText
         }
       }
+      name
     }
   }
 `;
@@ -63,7 +61,7 @@ const query = graphql`
 function Series({ location }) {
   const data = useStaticQuery(query);
   const { SEO, Hero } = data.strapiTutorialPage.Page;
-  const articles = data.allStrapiArticle.nodes;
+  const { articles, name } = data.strapiTutorial;
 
   return (
     <>
@@ -71,7 +69,7 @@ function Series({ location }) {
         <SeriesPage
           location={location}
           Hero={Hero}
-          name={"Latest"}
+          name={name}
           articles={articles}
         />
       </Layout>
