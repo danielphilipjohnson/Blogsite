@@ -10,7 +10,7 @@ function ArchiveBlogs({ blogs, title, count }) {
       {blogs.map((article) => {
         return (
           <article className="w-full text-xs" key={article.id}>
-            <Link className="archive-link" to={article.slug}>
+            <Link className="archive-link" to={"/article/" + article.slug}>
               <div className="w-full flex justify-between leading-snug py-3 mb-2 hover:bg-gray-200">
                 <span className="text-gray-500 whitespace-nowrap pr-2">
                   # {count--}
