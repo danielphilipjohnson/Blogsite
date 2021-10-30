@@ -2,15 +2,18 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/layout";
+import BreadCrumb from "../components/breadcrumb";
+
 import Banner from "../components/banner";
 import Markdown from "react-markdown";
 
-export default function About() {
+export default function About({ location }) {
   const data = useStaticQuery(query);
 
   return (
     <Layout seo={data.strapiAboutpage.seo}>
       <Banner />
+
       <div className="container pt-20 md:pt-20">
         <h2 className="text-3xl mb-4 pb-2 border-b border-gray-200">
           Hi{" "}
