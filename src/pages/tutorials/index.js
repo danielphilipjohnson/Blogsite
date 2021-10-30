@@ -1,0 +1,82 @@
+import React from "react";
+import Layout from "../../components/layout";
+import { graphql, useStaticQuery } from "gatsby";
+
+import GenericCards from "../../components/generic-cards";
+import HeroBanner from "../../components/hero/genericHero";
+import SeriesPage from "../../components/page-template";
+
+const query = graphql`
+  query {
+    strapiTutorialPage {
+      Page {
+        Seo {
+          metaTitle
+          keywords
+          SharedImage {
+            media {
+              localFile {
+                publicURL
+              }
+            }
+          }
+        }
+        Hero {
+          Banner {
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+          Heading
+          description
+        }
+      }
+    }
+
+    allStrapiArticle(limit: 10) {
+      nodes {
+        author {
+          name
+        }
+        title
+        slug
+        category {
+          name
+        }
+        description
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+function Series({ location }) {
+  const data = useStaticQuery(query);
+  const { SEO, Hero } = data.strapiTutorialPage.Page;
+  const articles = data.allStrapiArticle.nodes;
+
+  return (
+    <>
+      <Layout seo={SEO}>
+        <SeriesPage
+          location={location}
+          Hero={Hero}
+          name={"Latest"}
+          articles={articles}
+        />
+      </Layout>
+    </>
+  );
+}
+
+export default Series;
