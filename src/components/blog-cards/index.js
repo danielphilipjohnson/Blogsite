@@ -12,6 +12,7 @@ function BlogCards({ blogs, title }) {
       </div>
       <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
         {blogs.map((article, i) => {
+          console.log(article);
           return (
             <div
               className="w-full md:w-1/2 md:pr-6 mb-4 md:mb-4"
@@ -43,7 +44,7 @@ function BlogCards({ blogs, title }) {
                 >
                   <header className="w-full">
                     <p className="bg-gradient-to-r from-blue-700 to-green-800 w-max font-medium text-white block uppercase py-1 px-2 text-xs rounded">
-                      {article.node.category.name}
+                      {article.node.category?.name}
                     </p>
                     <h2 className="w-blog-title max-w-full pt-4 font-bold text-2xl md:text-3xl leading-snug text-white">
                       {article.node.title}

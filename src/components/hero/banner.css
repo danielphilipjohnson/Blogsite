@@ -1,0 +1,14 @@
+.banner {
+  background-color: #000;
+  position: absolute !important;
+  filter: brightness(0.27);
+  width: 100% !important;
+}
+
+.section-heading {
+  background-color: #000;
+  height: auto!important;
+  position: absolute !important;
+  filter: brightness(0.27);
+  width: 100% !important;
+}

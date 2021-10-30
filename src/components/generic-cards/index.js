@@ -15,6 +15,7 @@ const Categories = ({ location, name, articles }) => {
       <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
         {articles.map((article, i) => {
           const image = getImage(article.image.localFile);
+          
           return (
             <div
               className="w-full md:w-1/2 mb-6 md:mb-10 md:pr-6"
@@ -41,6 +42,7 @@ const Categories = ({ location, name, articles }) => {
                       {article.title}
                     </p>
                   </header>
+                  <p>{article.description}</p>
                   <p className="mt-auto ml-auto uppercase font-medium text-sm rounded text-white leading-tight px-2 p-1 bg-gradient-to-r from-blue-700 to-blue-800 ">
                     Read more
                   </p>

@@ -4,12 +4,12 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 //import categoryReflect from "../../images/category/reflection.webp";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const Categories = () => {
+const Categories = ({ location }) => {
   const data = useStaticQuery(query);
 
   return (
     <div className="container">
-      <div className="text-center font-bold  text-2xl mb-2">
+      <div className="text-center font-bold  text-2xl">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
           <h1 className="text-5xl capitalize">Topics</h1>
         </header>
@@ -38,7 +38,7 @@ const Categories = () => {
                   />
                 </figure>
                 <Link
-                  to={`/category/${category.node.slug}`}
+                  to={`/categories/${category.node.slug}`}
                   className="blog-link absolute 2 inset-0 p-6 flex flex-col items-start cursor-pointer transition-cursor duration-300 ease-in-out text-white"
                 >
                   <header className="w-full">
