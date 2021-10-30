@@ -33,13 +33,17 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
-        collectionTypes: ["article", "category", "writer"],
+        collectionTypes: ["article", "category", "series", "tutorial", "writer"],
         singleTypes: [
           `homepage`,
+          `seriespage`,
           `global`,
           `aboutpage`,
           `archivepage`,
           `catergoriespage`,
+          `latest-page`,
+          `tutorial-page`
+          
         ],
         queryLimit: 1000,
       },
@@ -47,29 +51,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-embed-snippet`,
-            options: {
-              directory: `${__dirname}/content/snippets/`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {},
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -162,14 +143,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    // "gatsby-plugin-webpack-bundle-analyzer",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/content/`,
-      },
-    },
+    "gatsby-plugin-webpack-bundle-analyzer",
+   
     {
       resolve: `gatsby-source-filesystem`,
       options: {
