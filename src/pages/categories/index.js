@@ -3,21 +3,37 @@ import Layout from "../../components/layout";
 import { graphql, useStaticQuery } from "gatsby";
 
 import CategoriesComponent from "../../components/categories";
-import Hero from "../../components/hero";
 import BreadCrumb from "../../components/breadcrumb";
+import HeroBanner from "../../components/hero/genericHero";
 
 const query = graphql`
   query {
     strapiCatergoriespage {
-      seo {
-        metaTitle
-        metaDescription
-        shareImage {
-          localFile {
-            publicURL
+      Page {
+        Seo {
+          metaTitle
+          keywords
+          SharedImage {
+            media {
+              localFile {
+                publicURL
+              }
+            }
           }
         }
-        keywords
+        Hero {
+          Banner {
+            localFile {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+          Heading
+          description
+        }
       }
     }
   }
@@ -25,10 +41,12 @@ const query = graphql`
 
 function Categories({ location }) {
   const data = useStaticQuery(query);
+  const { SEO, Hero } = data.strapiCatergoriespage.Page;
+  
   return (
     <>
-      <Layout seo={data.strapiCatergoriespage.seo}>
-        <Hero location={location} />
+      <Layout seo={SEO}>        
+        <HeroBanner location={location} Hero={Hero} />
         <CategoriesComponent />
       </Layout>
     </>
