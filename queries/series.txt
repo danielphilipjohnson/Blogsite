@@ -1,0 +1,11 @@
+query MyQuery {
+  allStrapiCategory {
+    nodes {
+      name
+      cover {
+        name
+        url
+      }
+    }
+  }
+}
