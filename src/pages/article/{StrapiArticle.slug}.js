@@ -56,7 +56,7 @@ const Article = ({ data }) => {
       <article className="mx-auto max-w-7xl px-8 md:px-16 lg:px-24 pb-16">
         <figure>
             <GatsbyImage
-              class="w-full shadow-lg object-cover "
+              className="w-full shadow-lg object-cover "
               alt={`Picture for ${article.title} article`}
               image={article.image.localFile.childImageSharp.gatsbyImageData}
               layout="fullWidth"

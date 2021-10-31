@@ -1,9 +1,7 @@
 import React from "react";
-import Layout from "../../components/layout";
 import { graphql, useStaticQuery } from "gatsby";
 
-import GenericCards from "../../components/generic-cards";
-import HeroBanner from "../../components/hero/genericHero";
+import Layout from "../../components/layout";
 import SeriesPage from "../../components/page-template";
 
 const query = graphql`

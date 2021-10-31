@@ -10,7 +10,7 @@ export default function Home({ data }) {
   return (
     <>
       <Layout seo={data.strapiArchivepage.seo}>
-        <div className="pt-2 md:pt-8 container pb-12">
+        <div className="mx-auto px-8 lg:px-32 xl:px-48 py-16 max-w-7xl">
           <ArchiveBlogs
             blogs={articles}
             count={data.allStrapiArticle.totalCount}

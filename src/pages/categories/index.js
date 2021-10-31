@@ -3,7 +3,6 @@ import Layout from "../../components/layout";
 import { graphql, useStaticQuery } from "gatsby";
 
 import CategoriesComponent from "../../components/categories";
-import BreadCrumb from "../../components/breadcrumb";
 import HeroBanner from "../../components/hero/genericHero";
 
 const query = graphql`
