@@ -44,7 +44,7 @@ function Banner({ location }) {
 
   return (
     <>
-      <div className="w-full pt-5 md:py-20 md:mb-4 bg-black relative">
+      <div className="w-full px-8 lg:px-32 xl:px-48 py-16 md:py-32 md:mb-4 bg-black relative">
         <BreadCrumb location={location} />
         <StaticImage
           className="banner w-full absolute object-cover inset-0 flex flex-col items-start"
@@ -57,7 +57,7 @@ function Banner({ location }) {
         />
         {nodes.map((item, i) => {
           return (
-            <div className="container py-8">
+            <div className="flex justify-center  py-8">
               <div
                 className="w-full flex flex-col md:flex-row 
           items-center md:items-start justify-items-center text-white group relative"

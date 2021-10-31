@@ -44,7 +44,7 @@ function Banner() {
 
   return (
     <div
-      className="w-full pt-5 md:py-20 md:mb-4 bg-black"
+      className="w-full pt-5 md:mb-4 bg-black"
       style={{
         height: "600px",
       }}
@@ -60,7 +60,7 @@ function Banner() {
       />
       {nodes.map((item, i) => {
         return (
-          <div className="px-8">
+          <div className="mx-auto md:py-20 px-8 lg:px-32 xl:px-48 ">
             <div
               className="w-full flex flex-col md:flex-row 
           items-center md:items-start justify-items-center text-white group relative"

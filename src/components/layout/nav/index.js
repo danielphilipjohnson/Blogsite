@@ -109,7 +109,7 @@ function Nav() {
       </nav>
       <button
         ref={menuRef}
-        className="menu-btn sm:hidden fixed top-4 right-0 w-full z-50 pointer p-4"
+        className="menu-btn sm:hidden fixed top-4 left-0 z-50 pointer p-4"
         onClick={openMenu}
         role="menu"
       >

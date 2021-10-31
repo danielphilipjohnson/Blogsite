@@ -7,7 +7,7 @@ const Categories = ({ location }) => {
   const data = useStaticQuery(query);
 
   return (
-    <div className="px-8 py-16 max-w-7xl">
+    <div className="mx-auto px-8 py-16 max-w-7xl">
       <div className="text-center font-bold  text-2xl">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
           <h1 className="text-5xl capitalize">
@@ -16,7 +16,7 @@ const Categories = ({ location }) => {
         </header>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-4 md:pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:pb-10">
         {data.allStrapiCategory.edges.map((category, i) => {
           return (
             <div

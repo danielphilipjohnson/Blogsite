@@ -3,18 +3,18 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 function Blogs({ blogs, title }) {
   return (
-    <>
+    <div className="mx-auto px-8 lg:px-32 xl:px-48 max-w-7xl pb-8">
       <div className="text-center font-bold  text-2xl mb-2">
         <header className="py-6 md:py-10 flex flex-wrap items-center justify-between md:pt-0 md:pr-6">
           <h1 className="text-4xl md:text-5xl capitalize">{title}</h1>
         </header>
       </div>
-      <div className="flex flex-wrap md:-mr-6 pb-4 md:pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:pb-10">
         {blogs.map((article) => {
           const image = getImage(article.image.localFile);
           return (
             <div
-              className="w-full md:w-1/2 mb-6 md:mb-10 md:pr-6"
+              className="w-full mb-6 md:mb-10 md:pr-6"
               key={article.id}
             >
               <div className="group relative border rounded-full">
@@ -47,11 +47,7 @@ function Blogs({ blogs, title }) {
                     </h2>
                   </header>
                   <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                    qui blanditiis praesentium voluptatum deleniti atque
-                    corrupti quos dolores et quas molestias excepturi sint
-                    occaecati cupiditate non provident, similique sunt in culpa
-                    qui.
+                   {article.excerpt}
                   </p>
                   <p className="mt-auto ml-auto uppercase font-medium text-sm text-white leading-tight bg-black p-2">
                     Read more
@@ -62,7 +58,7 @@ function Blogs({ blogs, title }) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 

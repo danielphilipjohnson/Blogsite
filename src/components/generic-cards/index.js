@@ -1,24 +1,24 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Categories = ({ location, name, articles }) => {
   return (
-    <div className="px-8 py-16 max-w-7xl">
+    <div className="mx-auto px-8 lg:px-32 xl:px-48 py-16">
       <div className="text-center font-bold  text-2xl">
         <header className="pb-6 md:pb-12 flex flex-wrap items-center justify-between">
           <h1 className="text-5xl capitalize">{name}</h1>
         </header>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-4 md:pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-4 md:pb-10">
         {articles.map((article, i) => {
           const image = getImage(article.image.localFile);
           return (
             <div
               className="w-full mb-6 md:mb-10 md:pr-6"
-              key={article.name}
+              key={i}
             >
               <div className="group relative border rounded-full">
                 <figure
@@ -32,7 +32,7 @@ const Categories = ({ location, name, articles }) => {
                     width={800}
                     formats={["auto", "avif", "webp", "png"]}
                     style={{ minHeight: "300px" }}
-                    alt={article.alternativeText}
+                    alt={image.alt}
                   />
                 </figure>
                 <Link

@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div class="font-sans text-black flex items-center justify-center">
-      <div class="border rounded overflow-hidden flex">
-        <input type="text" class="px-4 py-2" placeholder="Search..." />
-        <button class="flex items-center justify-center px-4 border-l">
+    <div className="font-sans text-black flex items-center justify-center">
+      <div className="border rounded overflow-hidden flex">
+        <input type="text" className="px-4 py-2" placeholder="Search..." />
+        <button className="flex items-center justify-center px-4 border-l">
           <svg
-            class="h-4 w-4 text-grey-dark"
+            className="h-4 w-4 text-grey-dark"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

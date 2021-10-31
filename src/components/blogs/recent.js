@@ -7,7 +7,7 @@ const Blogs = ({ title }) => {
   const articles = data.articles.edges;
 
   return (
-    <section className="container pt-10">
+    <section className="mx-auto px-8 py-16 max-w-7xl">
       <BlogCards blogs={articles} title={title} />
     </section>
   );
