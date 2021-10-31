@@ -41,6 +41,7 @@ export const blogListQuery = graphql`
           name
         }
         description
+        excerpt
         image {
           localFile {
             childImageSharp {
