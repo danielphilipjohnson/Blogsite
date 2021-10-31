@@ -156,80 +156,64 @@ module.exports = {
     },
     `gatsby-plugin-advanced-sitemap`,
     "gatsby-plugin-robots-txt",
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allStrapiArticle } }) => {
-              return allStrapiArticle.nodes.map((article) => {
-                return Object.assign({}, article.description, {
-                  description: article.excerpt,
-                  date: article.frontmatter.published_at,
-                  url: site.siteMetadata.siteUrl + article.slug,
-                  guid: site.siteMetadata.siteUrl + article.slug,
-                  // custom_elements: [{ "content:encoded": edge.node.html }],
-                });
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
-                    }
-                  }
-                }
-
-                 allStrapiArticle( sort: { order: DESC}) {
-                    nodes {
-                      author {
-                        name
-                      }
-                      title
-                      slug
-                      published_at
-                      category {
-                        name
-                      }
-                      description
-                      excerpt
-                    }
-                  }
-              }
-            `,
-            output: "/rss.xml",
-            title: "Blogs Daniel Philip Johnson",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blogs/",
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allStrapiArticle } }) => {
+    //           return allStrapiArticle.nodes.map((article) => {
+    //             return Object.assign({}, article.description, {
+    //               description: article.excerpt,
+    //               date: article.published_at,
+    //               url: site.siteMetadata.siteUrl + article.slug,
+    //               guid: site.siteMetadata.siteUrl + article.slug,
+    //               // custom_elements: [{ "content:encoded": edge.node.html }],
+    //             });
+    //           });
+    //         },
+    //         query: `
+    //           {
+    //              allStrapiArticle( sort: { order: DESC}) {
+    //                 nodes {
+    //                   author {
+    //                     name
+    //                   }
+    //                   title
+    //                   slug
+    //                   published_at
+    //                   category {
+    //                     name
+    //                   }
+    //                   description
+    //                   excerpt
+    //                 }
+    //               }
+    //           }
+    //         `,
+    //         output: "/rss.xml",
+    //         title: "Blogs Daniel Philip Johnson",
+    //         // optional configuration to insert feed reference in pages:
+    //         // if `string` is used, it will be used to create RegExp and then test if pathname of
+    //         // current page satisfied this regular expression;
+    //         // if not provided or `undefined`, all pages will have feed reference inserted
+    //         match: "^/blogs/",
+    //       },
+    //     ],
+    //   },
+    // },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-fontawesome-css`,
   ],
