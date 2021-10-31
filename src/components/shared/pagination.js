@@ -1,5 +1,6 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { Link } from "gatsby";
+
 export default function pagination({ url, pageContext }) {
   const isPreviousBlogs = () => {
     if (pageContext.currentPage > 1) {

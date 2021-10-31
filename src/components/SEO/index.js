@@ -1,113 +1,140 @@
-import * as React from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import PropTypes from "prop-types";
-import SchemaOrg from "./schema-org";
-import config from "../../../config/website";
-import defaultMetaImage from "../../../static/metaImage.png";
 
-function Seo({
-  siteMetadata: seo,
-  pageData = {},
-  metaImage,
-  isBlogPost,
-  frontmatter = {},
-  keywords = frontmatter.keywords || config.keywords,
-  title = frontmatter.title || config.siteTitle,
-  description = frontmatter.description || seo.description,
-  image = `${seo.canonicalUrl}${metaImage || defaultMetaImage}`,
-  url = `${seo.canonicalUrl}${pageData.slug || ""}`,
-  datePublished = isBlogPost ? frontmatter.datePublished : false,
-}) {
+const SEO = ({ seo = {}, location }) => {
+  const { strapiGlobal } = useStaticQuery(query);
+  const { defaultSeo, siteName, favicon, siteUrl } = strapiGlobal;
+
+  // Merge default and page-specific SEO values
+  const fullSeo = { ...defaultSeo, ...seo };
+
+  const getMetaTags = () => {
+    const tags = [];
+
+    if (fullSeo.metaTitle) {
+      tags.push(
+        {
+          property: "og:title",
+          content: fullSeo.metaTitle,
+        },
+        {
+          name: "twitter:title",
+          content: fullSeo.metaTitle,
+        }
+      );
+    }
+
+    if (fullSeo.keywords) {
+      tags.push({
+        name: "keywords",
+        content: fullSeo.keywords,
+      });
+    }
+
+    if (fullSeo.metaDescription) {
+      tags.push(
+        {
+          name: "description",
+          content: fullSeo.metaDescription,
+        },
+        {
+          property: "og:description",
+          content: fullSeo.metaDescription,
+        },
+        {
+          name: "twitter:description",
+          content: fullSeo.metaDescription,
+        }
+      );
+    }
+    if (fullSeo.shareImage) {
+      const imageUrl =
+        (process.env.GATSBY_ROOT_URL || "http://localhost:8000") +
+        fullSeo.shareImage.localFile.publicURL;
+      tags.push(
+        {
+          name: "image",
+          content: imageUrl,
+        },
+        {
+          property: "og:image",
+          content: imageUrl,
+        },
+        {
+          name: "twitter:image",
+          content: imageUrl,
+        }
+      );
+    }
+    if (fullSeo.article) {
+      tags.push({
+        property: "og:type",
+        content: "article",
+      });
+    }
+    tags.push({ name: "twitter:card", content: "summary_large_image" });
+
+    return tags;
+  };
+
+  const metaTags = getMetaTags();
+
   return (
-    <>
-      <Helmet
-        htmlAttributes={{
-          lang: "en",
-        }}
-      >
-        {/* General tags */}
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="image" content={image} />
-        <meta name="keywords" content={keywords} />
-        {/* OpenGraph tags */}
-        <meta property="og:url" content={url} />
-        {isBlogPost ? <meta property="og:type" content="article" /> : null}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
-        <meta property="fb:app_id" content={seo.social.fbAppID} />
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content={seo.social.twitterHandle} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
-      </Helmet>
-      <SchemaOrg
-        isBlogPost={isBlogPost}
-        url={url}
-        title={title}
-        image={image}
-        description={description}
-        datePublished={datePublished}
-        canonicalUrl={seo.canonicalUrl}
-        author={seo.author}
-        organization={seo.organization}
-        defaultTitle={seo.title}
-      />
-    </>
+    <Helmet
+      title={fullSeo.metaTitle}
+      titleTemplate={`%s | ${siteName}`}
+      link={[
+        {
+          rel: "icon",
+          href: favicon.publicURL,
+        },
+        {
+          rel: "canonical",
+          href: siteUrl,
+        },
+      ]}
+      meta={metaTags}
+    />
   );
-}
+};
 
-function SEOWithQuery(props) {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          description
-          canonicalUrl
-          image
-          keywords
-          author {
-            name
-          }
-          organization {
-            name
-            url
-            logo
-          }
-          social {
-            fbAppID
-            twitterHandle
-            twitter
+export default SEO;
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  article: PropTypes.bool,
+};
+
+SEO.defaultProps = {
+  title: null,
+  description: null,
+  image: null,
+  article: false,
+};
+
+const query = graphql`
+  query {
+    strapiGlobal {
+      siteName
+      siteUrl
+      favicon {
+        localFile {
+          publicURL
+        }
+      }
+      defaultSeo {
+        metaTitle
+        metaDescription
+        shareImage {
+          localFile {
+            publicURL
           }
         }
       }
     }
-  `);
-  return <Seo siteMetadata={siteMetadata} {...props} />;
-}
-
-SEOWithQuery.propTypes = {
-  isBlogPost: PropTypes.bool,
-  postData: PropTypes.shape({
-    childMarkdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.any,
-      excerpt: PropTypes.any,
-    }),
-  }),
-  metaImage: PropTypes.string,
-};
-
-SEOWithQuery.defaultProps = {
-  isBlogPost: false,
-  postData: { childMarkdownRemark: {} },
-  metaImage: null,
-};
-
-export default SEOWithQuery;
+  }
+`;

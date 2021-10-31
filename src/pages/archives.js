@@ -3,26 +3,17 @@ import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import ArchiveBlogs from "../components/archive-blogs";
-import Seo from "../components/SEO";
 
 export default function Home({ data }) {
-  const description = `Blog archives of all my blogs ranging from react, career development, reflection and tips on how to improve as a developer`;
+  const articles = data.allStrapiArticle.nodes;
 
   return (
     <>
-      <Layout>
-        <Seo
-          keywords={
-            "Blog Archive Daniel Philip Johnson, react developer, Front-End Engineer, London, web development"
-          }
-          title={"Blog Archives"}
-          description={description}
-        />
-
-        <div className="pt-2 md:pt-8 container pb-12">
+      <Layout seo={data.strapiArchivepage.seo}>
+        <div className="mx-auto px-8 lg:px-32 xl:px-48 py-16 max-w-7xl">
           <ArchiveBlogs
-            blogs={data.blogs.edges}
-            count={data.blogs.totalCount}
+            blogs={articles}
+            count={data.allStrapiArticle.totalCount}
             title={"Blogs from Daniel — Archive"}
           />
         </div>
@@ -33,36 +24,43 @@ export default function Home({ data }) {
 
 export const query = graphql`
   query {
-    blogs: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            category
-            cover {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 800
-                  height: 500
-                  formats: [AUTO, WEBP, AVIF, PNG]
-                )
-              }
+
+    allStrapiArticle {
+      nodes {
+        id
+        published_at
+        title
+        slug
+        author {
+          name
+        }
+        
+        category {
+          name
+        }
+        description
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
-          excerpt
         }
       }
+      totalCount
     }
-    categories: allMarkdownRemark {
-      distinct(field: frontmatter___category)
+  
+    strapiArchivepage {
+      seo {
+        metaTitle
+        metaDescription
+        shareImage {
+          localFile {
+            publicURL
+          }
+        }
+        keywords
+      }
     }
   }
 `;

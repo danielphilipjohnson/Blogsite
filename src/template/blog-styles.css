@@ -79,7 +79,7 @@ ol {
   padding-left: 2.8em;
 }
 
-.gatsby-highlight {
+pre {
   background-color: #fdf6e3;
   border-radius: 0.3em;
   margin: 0.5em 0;
@@ -87,13 +87,13 @@ ol {
   overflow: auto;
 }
 
-.gatsby-highlight pre[class*="language-"].line-numbers {
+pre[class*="language-"].line-numbers {
   padding: 0;
   padding-left: 2.8em;
   overflow: initial;
 }
 
-.gatsby-highlight pre[class*="language-"] {
+pre[class*="language-"] {
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -122,6 +122,7 @@ ol {
 .command-line-prompt > span[data-prompt]:before {
   content: attr(data-prompt);
 }
+
 iframe {
   width: 100%;
   margin-bottom: 1rem;

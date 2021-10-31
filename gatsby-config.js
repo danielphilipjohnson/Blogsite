@@ -29,32 +29,33 @@ module.exports = {
     image: config.image,
   },
   plugins: [
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.API_URL || "http://localhost:1337",
+        collectionTypes: [
+          "article",
+          "category",
+          "series",
+          "tutorial",
+          "writer",
+        ],
+        singleTypes: [
+          `homepage`,
+          `seriespage`,
+          `global`,
+          `aboutpage`,
+          `archivepage`,
+          `catergoriespage`,
+          `latest-page`,
+          `tutorial-page`,
+        ],
+        queryLimit: 1000,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-embed-snippet`,
-            options: {
-              directory: `${__dirname}/content/snippets/`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 800,
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {},
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -147,14 +148,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    // "gatsby-plugin-webpack-bundle-analyzer",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/content/`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -163,64 +156,64 @@ module.exports = {
     },
     `gatsby-plugin-advanced-sitemap`,
     "gatsby-plugin-robots-txt",
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                });
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-            title: "Blogs Daniel Philip Johnson",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blogs/",
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allStrapiArticle } }) => {
+    //           return allStrapiArticle.nodes.map((article) => {
+    //             return Object.assign({}, article.description, {
+    //               description: article.excerpt,
+    //               date: article.published_at,
+    //               url: site.siteMetadata.siteUrl + article.slug,
+    //               guid: site.siteMetadata.siteUrl + article.slug,
+    //               // custom_elements: [{ "content:encoded": edge.node.html }],
+    //             });
+    //           });
+    //         },
+    //         query: `
+    //           {
+    //              allStrapiArticle( sort: { order: DESC}) {
+    //                 nodes {
+    //                   author {
+    //                     name
+    //                   }
+    //                   title
+    //                   slug
+    //                   published_at
+    //                   category {
+    //                     name
+    //                   }
+    //                   description
+    //                   excerpt
+    //                 }
+    //               }
+    //           }
+    //         `,
+    //         output: "/rss.xml",
+    //         title: "Blogs Daniel Philip Johnson",
+    //         // optional configuration to insert feed reference in pages:
+    //         // if `string` is used, it will be used to create RegExp and then test if pathname of
+    //         // current page satisfied this regular expression;
+    //         // if not provided or `undefined`, all pages will have feed reference inserted
+    //         match: "^/blogs/",
+    //       },
+    //     ],
+    //   },
+    // },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-fontawesome-css`,
   ],

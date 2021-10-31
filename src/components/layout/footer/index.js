@@ -17,13 +17,13 @@ import {
 function Footer() {
   return (
     <footer className="bg-gradient-to-r from-blue-700 to-purple-800 text-white  w-full">
-      <div className="container">
+      <div className="px-8 lg:px-32 xl:px-64 ">
         <div className="flex flex-col md:flex-row justify-between py-10 md:pt-16">
           <div className="md:w-1/3 order-last md:order-first">
             <h2 className="uppercase font-bold border-b-2 mb-4 w-36">
               Internal links
             </h2>
-            <ul>
+            <ul className="mb-8">
               <li className="my-2">
                 <Link to={`/blogs/`}>Blogs</Link>
               </li>
@@ -54,69 +54,28 @@ function Footer() {
           </div>
           <div className="md:w-1/3">
             <h2 className="uppercase font-bold border-b-2 mb-4 w-36">
-              Social links
+              Tutorials
             </h2>
-            <ul className="flex mb-8">
-              <li className="mr-4 text-3xl">
-                <a
-                  href="https://www.linkedin.com/in/daniel-philip-johnson/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="linkedin"
-                >
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </a>
+            <ul className="mb-8">
+              <li className="my-2">
+                <Link to={`/`}>Django</Link>
               </li>
-              <li className="mr-4 text-3xl">
-                <a
-                  href="https://twitter.com/danielp_johnson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="twitter"
-                >
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
+              <li className="my-2">
+                <Link to={`/`}>React</Link>
               </li>
-              <li className="mr-4 text-3xl">
-                <a
-                  href="https://www.instagram.com/danielphilipjohnson/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="instagram"
-                >
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              </li>
-              <li className="mr-4 text-3xl">
-                <a
-                  href="https://www.youtube.com/c/DanielPhilipJohnson/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="youtube"
-                >
-                  <FontAwesomeIcon icon={faYoutube} />
-                </a>
-              </li>
-              <li className="mr-4 text-3xl">
-                <a
-                  href="https://github.com/danielphilipjohnson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="source code"
-                >
-                  <FontAwesomeIcon icon={faCode} />
-                </a>
+              <li className="my-2">
+                <Link to={`/`}>Vue</Link>
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col md:w-1/3 justify-between mb-8">
-            <nav>
-              <h2 className="uppercase font-bold border-b-2 mb-4 w-48">
+            <nav className="mb-4">
+              <h2 className="uppercase font-bold border-b-2 mb-4">
                 Developer links
               </h2>
               <ul className="flex">
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://dev.to/danielphilipjohnson"
                     target="_blank"
@@ -126,7 +85,7 @@ function Footer() {
                     <FontAwesomeIcon icon={faDev} />
                   </a>
                 </li>
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://www.hackerrank.com/daniel_p_johnson"
                     target="_blank"
@@ -136,7 +95,7 @@ function Footer() {
                     <FontAwesomeIcon icon={faHackerrank} />
                   </a>
                 </li>
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://codepen.io/danielphilipjohnson"
                     target="_blank"
@@ -146,7 +105,7 @@ function Footer() {
                     <FontAwesomeIcon icon={faCodepen} />
                   </a>
                 </li>
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://stackoverflow.com/users/13921677/daniel-philip-johnson"
                     target="_blank"
@@ -156,7 +115,7 @@ function Footer() {
                     <FontAwesomeIcon icon={faStackOverflow} />
                   </a>
                 </li>
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://www.freecodecamp.org/daniel-philip-johnson"
                     target="_blank"
@@ -166,7 +125,7 @@ function Footer() {
                     <FontAwesomeIcon icon={faFreeCodeCamp} />
                   </a>
                 </li>
-                <li className="my-2 mr-4 text-3xl">
+                <li className="mb-2 mr-4 text-3xl">
                   <a
                     href="https://github.com/danielphilipjohnson"
                     target="_blank"
@@ -174,6 +133,63 @@ function Footer() {
                     aria-label="github"
                   >
                     <FontAwesomeIcon icon={faGithub} />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <nav className="mb-4">
+              <h2 className="uppercase font-bold border-b-2 mb-4">
+                Social links
+              </h2>
+              <ul className="flex mb-8">
+                <li className="mr-4 text-3xl">
+                  <a
+                    href="https://www.linkedin.com/in/daniel-philip-johnson/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="linkedin"
+                  >
+                    <FontAwesomeIcon icon={faLinkedin} />
+                  </a>
+                </li>
+                <li className="mr-4 text-3xl">
+                  <a
+                    href="https://twitter.com/danielp_johnson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="twitter"
+                  >
+                    <FontAwesomeIcon icon={faTwitter} />
+                  </a>
+                </li>
+                <li className="mr-4 text-3xl">
+                  <a
+                    href="https://www.instagram.com/danielphilipjohnson/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="instagram"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                </li>
+                <li className="mr-4 text-3xl">
+                  <a
+                    href="https://www.youtube.com/c/DanielPhilipJohnson/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="youtube"
+                  >
+                    <FontAwesomeIcon icon={faYoutube} />
+                  </a>
+                </li>
+                <li className="mr-4 text-3xl">
+                  <a
+                    href="https://github.com/danielphilipjohnson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="source code"
+                  >
+                    <FontAwesomeIcon icon={faCode} />
                   </a>
                 </li>
               </ul>
