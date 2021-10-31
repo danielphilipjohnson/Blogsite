@@ -33,7 +33,13 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
-        collectionTypes: ["article", "category", "series", "tutorial", "writer"],
+        collectionTypes: [
+          "article",
+          "category",
+          "series",
+          "tutorial",
+          "writer",
+        ],
         singleTypes: [
           `homepage`,
           `seriespage`,
@@ -42,8 +48,7 @@ module.exports = {
           `archivepage`,
           `catergoriespage`,
           `latest-page`,
-          `tutorial-page`
-          
+          `tutorial-page`,
         ],
         queryLimit: 1000,
       },
@@ -143,8 +148,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    "gatsby-plugin-webpack-bundle-analyzer",
-   
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -170,14 +173,14 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+            serialize: ({ query: { site, allStrapiArticle } }) => {
+              return allStrapiArticle.nodes.map((article) => {
+                return Object.assign({}, article.description, {
+                  description: article.excerpt,
+                  date: article.frontmatter.published_at,
+                  url: site.siteMetadata.siteUrl + article.slug,
+                  guid: site.siteMetadata.siteUrl + article.slug,
+                  // custom_elements: [{ "content:encoded": edge.node.html }],
                 });
               });
             },
@@ -198,6 +201,22 @@ module.exports = {
                     }
                   }
                 }
+
+                 allStrapiArticle( sort: { order: DESC}) {
+                    nodes {
+                      author {
+                        name
+                      }
+                      title
+                      slug
+                      published_at
+                      category {
+                        name
+                      }
+                      description
+                      excerpt
+                    }
+                  }
               }
             `,
             output: "/rss.xml",
